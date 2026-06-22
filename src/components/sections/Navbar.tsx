@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Menu, X, HardHat, Phone, ChevronDown, Building2, Clock,
-  Users, Eye, Target, History, ShieldCheck, Newspaper, Megaphone,
+  Users, Target, History, ShieldCheck, Newspaper, Megaphone,
 } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -12,10 +12,11 @@ import { useSiteStore } from '@/lib/store'
 import { useI18n } from '@/lib/i18n'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 
+type OpenMenu = 'none' | 'corporate' | 'projects'
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [projectsOpen, setProjectsOpen] = useState(false)
-  const [corporateOpen, setCorporateOpen] = useState(false)
+  const [openMenu, setOpenMenu] = useState<OpenMenu>('none')
   const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useSiteStore()
   const { t, locale } = useI18n()
 
@@ -25,43 +26,58 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close dropdowns on outside click
   useEffect(() => {
-    const handleClick = () => {
-      setProjectsOpen(false)
-      setCorporateOpen(false)
-    }
-    if (projectsOpen || corporateOpen) {
+    if (openMenu === 'none') return
+    const handleClick = () => setOpenMenu('none')
+    const id = requestAnimationFrame(() => {
       document.addEventListener('click', handleClick)
-      return () => document.removeEventListener('click', handleClick)
+    })
+    return () => {
+      cancelAnimationFrame(id)
+      document.removeEventListener('click', handleClick)
     }
-  }, [projectsOpen, corporateOpen])
+  }, [openMenu])
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpenMenu('none')
+    }
+    document.addEventListener('keydown', handleEsc)
+    return () => document.removeEventListener('keydown', handleEsc)
+  }, [])
+
+  const toggleMenu = useCallback((menu: OpenMenu) => {
+    setOpenMenu(prev => prev === menu ? 'none' : menu)
+  }, [])
 
   const handleNavClick = () => {
     closeMobileMenu()
-    setProjectsOpen(false)
-    setCorporateOpen(false)
+    setOpenMenu('none')
   }
+
+  const corporateItems = [
+    { href: '/hakkimizda', label: t.nav.about, icon: Users, desc: locale === 'en' ? 'Company overview' : 'Şirket genel bakış', color: 'primary' as const },
+    { href: '/vizyon-misyon', label: t.nav.visionMission, icon: Target, desc: locale === 'en' ? 'Our goals & principles' : 'Hedeflerimiz & ilkelerimiz', color: 'primary' as const },
+    { href: '/tarihce', label: t.nav.history, icon: History, desc: locale === 'en' ? 'Our journey since 1999' : '1999\'dan bugüne yolculuğumuz', color: 'primary' as const },
+    { href: '/kalite-politikasi', label: t.nav.qualityPolicy, icon: ShieldCheck, desc: locale === 'en' ? 'Standards & certifications' : 'Standartlar & sertifikalar', color: 'primary' as const },
+    { href: '/haberler', label: t.nav.news, icon: Newspaper, desc: locale === 'en' ? 'Latest news & updates' : 'Güncel haberler & gelişmeler', color: 'primary' as const },
+    { href: '/duyurular', label: t.nav.announcements, icon: Megaphone, desc: locale === 'en' ? 'Tenders, events & notices' : 'İhaleler, etkinlikler & duyurular', color: 'amber' as const },
+  ]
+
+  const projectItems = [
+    { href: '/projeler', label: t.nav.completedProjects, icon: Building2, desc: locale === 'en' ? 'Successfully delivered' : 'Başarıyla teslim edildi', color: 'primary' as const },
+    { href: '/devam-eden-projeler', label: t.nav.ongoingProjects, icon: Clock, desc: locale === 'en' ? 'Currently under construction' : 'Şu anda inşaat halinde', color: 'amber' as const },
+  ]
 
   const navLinks = [
     { href: '/', label: t.nav.home },
     { href: '/hizmetler', label: t.nav.services },
   ]
 
-  // Kurumsal dropdown items
-  const corporateItems = [
-    { href: '/hakkimizda', label: t.nav.about, icon: Users, desc: locale === 'en' ? 'Company overview' : 'Şirket genel bakış', color: 'primary' },
-    { href: '/vizyon-misyon', label: t.nav.visionMission, icon: Target, desc: locale === 'en' ? 'Our goals & principles' : 'Hedeflerimiz & ilkelerimiz', color: 'primary' },
-    { href: '/tarihce', label: t.nav.history, icon: History, desc: locale === 'en' ? 'Our journey since 1999' : '1999\'dan bugüne yolculuğumuz', color: 'primary' },
-    { href: '/kalite-politikasi', label: t.nav.qualityPolicy, icon: ShieldCheck, desc: locale === 'en' ? 'Standards & certifications' : 'Standartlar & sertifikalar', color: 'primary' },
-    { href: '/haberler', label: t.nav.news, icon: Newspaper, desc: locale === 'en' ? 'Latest news & updates' : 'Güncel haberler & gelişmeler', color: 'primary' },
-    { href: '/duyurular', label: t.nav.announcements, icon: Megaphone, desc: locale === 'en' ? 'Tenders, events & notices' : 'İhaleler, etkinlikler & duyurular', color: 'amber' },
-  ]
-
-  // Projects dropdown items
-  const projectItems = [
-    { href: '/projeler', label: t.nav.completedProjects, icon: Building2, desc: locale === 'en' ? 'Successfully delivered' : 'Başarıyla teslim edildi', color: 'primary' },
-    { href: '/devam-eden-projeler', label: t.nav.ongoingProjects, icon: Clock, desc: locale === 'en' ? 'Currently under construction' : 'Şu anda inşaat halinde', color: 'amber' },
+  const otherLinks = [
+    { href: '/sss', label: t.nav.faq },
+    { href: '/kariyer', label: t.nav.career },
+    { href: '/iletisim', label: t.nav.contact },
   ]
 
   return (
@@ -75,22 +91,24 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
+
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
             <HardHat className="w-7 h-7 sm:w-8 sm:h-8 text-primary transition-transform group-hover:scale-110" />
             <div className="flex flex-col">
               <span className="text-lg sm:text-xl font-bold tracking-tight gradient-text">WIXTORY</span>
-              <span className="text-[10px] sm:text-xs text-muted-foreground -mt-1 tracking-widest">İNŞAAT</span>
+              <span className="text-[10px] sm:text-xs text-white/70 -mt-1 tracking-widest">İNŞAAT</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0.5">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-3 xl:px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-accent/50"
+                onClick={() => setOpenMenu('none')}
+                className="nav-link"
               >
                 {link.label}
               </Link>
@@ -99,49 +117,33 @@ export default function Navbar() {
             {/* Kurumsal Dropdown */}
             <div className="relative">
               <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  setCorporateOpen(!corporateOpen)
-                  setProjectsOpen(false)
-                }}
-                className="flex items-center gap-1 px-3 xl:px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-accent/50"
+                onClick={(e) => { e.stopPropagation(); toggleMenu('corporate') }}
+                className={`nav-link with-chevron ${openMenu === 'corporate' ? 'active' : ''}`}
               >
                 {t.nav.corporate}
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${corporateOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === 'corporate' ? 'rotate-180' : ''}`} />
               </button>
               <AnimatePresence>
-                {corporateOpen && (
+                {openMenu === 'corporate' && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 mt-2 w-72 glass rounded-xl shadow-xl shadow-black/20 overflow-hidden"
-                    onClick={(e) => e.stopPropagation()}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 6 }}
+                    transition={{ duration: 0.15, ease: 'easeOut' }}
+                    className="dropdown-panel w-72"
                   >
-                    <div className="p-2">
+                    <div className="p-1.5">
                       {corporateItems.map((item) => {
                         const Icon = item.icon
                         const isAmber = item.color === 'amber'
                         return (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            onClick={() => setCorporateOpen(false)}
-                            className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-primary/10 transition-all duration-200 group/item"
-                          >
-                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
-                              isAmber ? 'bg-amber-500/10 group-hover/item:bg-amber-500/20' : 'bg-primary/10 group-hover/item:bg-primary/20'
-                            }`}>
-                              <Icon className={`w-5 h-5 ${isAmber ? 'text-amber-500' : 'text-primary'}`} />
+                          <Link key={item.href} href={item.href} onClick={() => setOpenMenu('none')} className="dropdown-item group/item">
+                            <div className={`dropdown-icon ${isAmber ? 'amber' : ''}`}>
+                              <Icon className={`w-5 h-5 ${isAmber ? 'text-amber-400' : 'text-primary'}`} />
                             </div>
                             <div>
-                              <span className={`text-sm font-semibold text-foreground transition-colors ${
-                                isAmber ? 'group-hover/item:text-amber-500' : 'group-hover/item:text-primary'
-                              }`}>
-                                {item.label}
-                              </span>
-                              <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
+                              <span className={`dropdown-item-title ${isAmber ? 'amber' : ''}`}>{item.label}</span>
+                              <p className="dropdown-item-desc">{item.desc}</p>
                             </div>
                           </Link>
                         )
@@ -152,52 +154,36 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Projects Dropdown */}
+            {/* Projeler Dropdown */}
             <div className="relative">
               <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  setProjectsOpen(!projectsOpen)
-                  setCorporateOpen(false)
-                }}
-                className="flex items-center gap-1 px-3 xl:px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-accent/50"
+                onClick={(e) => { e.stopPropagation(); toggleMenu('projects') }}
+                className={`nav-link with-chevron ${openMenu === 'projects' ? 'active' : ''}`}
               >
                 {t.nav.projects}
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${projectsOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === 'projects' ? 'rotate-180' : ''}`} />
               </button>
               <AnimatePresence>
-                {projectsOpen && (
+                {openMenu === 'projects' && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 mt-2 w-64 glass rounded-xl shadow-xl shadow-black/20 overflow-hidden"
-                    onClick={(e) => e.stopPropagation()}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 6 }}
+                    transition={{ duration: 0.15, ease: 'easeOut' }}
+                    className="dropdown-panel w-64"
                   >
-                    <div className="p-2">
+                    <div className="p-1.5">
                       {projectItems.map((item) => {
                         const Icon = item.icon
                         const isAmber = item.color === 'amber'
                         return (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            onClick={() => setProjectsOpen(false)}
-                            className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-primary/10 transition-all duration-200 group/item"
-                          >
-                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
-                              isAmber ? 'bg-amber-500/10 group-hover/item:bg-amber-500/20' : 'bg-primary/10 group-hover/item:bg-primary/20'
-                            }`}>
-                              <Icon className={`w-5 h-5 ${isAmber ? 'text-amber-500' : 'text-primary'}`} />
+                          <Link key={item.href} href={item.href} onClick={() => setOpenMenu('none')} className="dropdown-item group/item">
+                            <div className={`dropdown-icon ${isAmber ? 'amber' : ''}`}>
+                              <Icon className={`w-5 h-5 ${isAmber ? 'text-amber-400' : 'text-primary'}`} />
                             </div>
                             <div>
-                              <span className={`text-sm font-semibold text-foreground transition-colors ${
-                                isAmber ? 'group-hover/item:text-amber-500' : 'group-hover/item:text-primary'
-                              }`}>
-                                {item.label}
-                              </span>
-                              <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
+                              <span className={`dropdown-item-title ${isAmber ? 'amber' : ''}`}>{item.label}</span>
+                              <p className="dropdown-item-desc">{item.desc}</p>
                             </div>
                           </Link>
                         )
@@ -208,36 +194,24 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* S.S.S Link */}
-            <Link
-              href="/sss"
-              className="px-3 xl:px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-accent/50"
-            >
-              {t.nav.faq}
-            </Link>
-
-            {/* Kariyer Link */}
-            <Link
-              href="/kariyer"
-              className="px-3 xl:px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-accent/50"
-            >
-              {t.nav.career}
-            </Link>
-
-            {/* İletişim Link */}
-            <Link
-              href="/iletisim"
-              className="px-3 xl:px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-accent/50"
-            >
-              {t.nav.contact}
-            </Link>
+            {/* Diğer Linkler */}
+            {otherLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpenMenu('none')}
+                className="nav-link"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
-          {/* CTA */}
+          {/* Sağ Taraf */}
           <div className="hidden lg:flex items-center gap-3">
-            <a href="tel:+905448358401" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a href="tel:+905448358401" className="flex items-center gap-2 text-sm text-white/70 hover:text-primary transition-colors">
               <Phone className="w-4 h-4" />
-              <span>+90 544 835 84 01</span>
+              <span className="hidden xl:inline">+90 544 835 84 01</span>
             </a>
             <LanguageSwitcher />
             <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
@@ -245,7 +219,7 @@ export default function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobil Menü Butonu */}
           <button
             onClick={toggleMobileMenu}
             className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
@@ -256,7 +230,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobil Menü */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -264,101 +238,51 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden glass border-t border-border/50"
+            className="lg:hidden glass border-t border-white/10"
           >
             <div className="px-4 py-4 space-y-1 max-h-[80vh] overflow-y-auto">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={handleNavClick}
-                  className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-colors"
-                >
+                <Link key={link.href} href={link.href} onClick={handleNavClick} className="mobile-link">
                   {link.label}
                 </Link>
               ))}
 
-              {/* Mobile Kurumsal Section */}
               <div className="px-4 py-2">
-                <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
-                  {t.nav.corporate}
-                </p>
+                <p className="text-xs font-bold text-primary uppercase tracking-wider mb-2">{t.nav.corporate}</p>
                 {corporateItems.map((item) => {
                   const Icon = item.icon
                   const isAmber = item.color === 'amber'
                   return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={handleNavClick}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/10 transition-all group/mob"
-                    >
-                      <Icon className={`w-4 h-4 ${isAmber ? 'text-amber-500' : 'text-primary'}`} />
-                      <span className={`text-sm font-medium text-muted-foreground transition-colors ${
-                        isAmber ? 'group-hover/mob:text-amber-500' : 'group-hover/mob:text-primary'
-                      }`}>
-                        {item.label}
-                      </span>
+                    <Link key={item.href} href={item.href} onClick={handleNavClick} className="mobile-dropdown-item group/mob">
+                      <Icon className={`w-4 h-4 ${isAmber ? 'text-amber-400' : 'text-primary'}`} />
+                      <span className={`mobile-dropdown-item-title ${isAmber ? 'amber' : ''}`}>{item.label}</span>
                     </Link>
                   )
                 })}
               </div>
 
-              {/* Mobile Projects Section */}
               <div className="px-4 py-2">
-                <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
-                  {t.nav.projects}
-                </p>
+                <p className="text-xs font-bold text-primary uppercase tracking-wider mb-2">{t.nav.projects}</p>
                 {projectItems.map((item) => {
                   const Icon = item.icon
                   const isAmber = item.color === 'amber'
                   return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={handleNavClick}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/10 transition-all group/mob"
-                    >
-                      <Icon className={`w-4 h-4 ${isAmber ? 'text-amber-500' : 'text-primary'}`} />
-                      <span className={`text-sm font-medium text-muted-foreground transition-colors ${
-                        isAmber ? 'group-hover/mob:text-amber-500' : 'group-hover/mob:text-primary'
-                      }`}>
-                        {item.label}
-                      </span>
+                    <Link key={item.href} href={item.href} onClick={handleNavClick} className="mobile-dropdown-item group/mob">
+                      <Icon className={`w-4 h-4 ${isAmber ? 'text-amber-400' : 'text-primary'}`} />
+                      <span className={`mobile-dropdown-item-title ${isAmber ? 'amber' : ''}`}>{item.label}</span>
                     </Link>
                   )
                 })}
               </div>
 
-              {/* Mobile S.S.S Link */}
-              <Link
-                href="/sss"
-                onClick={handleNavClick}
-                className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-colors"
-              >
-                {t.nav.faq}
-              </Link>
+              {otherLinks.map((link) => (
+                <Link key={link.href} href={link.href} onClick={handleNavClick} className="mobile-link">
+                  {link.label}
+                </Link>
+              ))}
 
-              {/* Mobile Kariyer Link */}
-              <Link
-                href="/kariyer"
-                onClick={handleNavClick}
-                className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-colors"
-              >
-                {t.nav.career}
-              </Link>
-
-              {/* Mobile İletişim Link */}
-              <Link
-                href="/iletisim"
-                onClick={handleNavClick}
-                className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-colors"
-              >
-                {t.nav.contact}
-              </Link>
-
-              <div className="pt-3 border-t border-border/50">
-                <a href="tel:+905448358401" className="flex items-center gap-2 px-4 py-3 text-sm text-muted-foreground">
+              <div className="pt-3 border-t border-white/10">
+                <a href="tel:+905448358401" className="flex items-center gap-2 px-4 py-3 text-sm text-white/70">
                   <Phone className="w-4 h-4 text-primary" />
                   <span>+90 544 835 84 01</span>
                 </a>

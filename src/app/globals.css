@@ -398,3 +398,69 @@ html {
 a, button {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ─── Navbar Styles ─────────────────────────────────── */
+
+/* Top nav link */
+.nav-link {
+  @apply px-3 xl:px-4 py-2 text-sm font-semibold text-white rounded-lg transition-all duration-200;
+}
+.nav-link:hover {
+  @apply text-primary bg-white/5;
+}
+.nav-link.with-chevron {
+  @apply flex items-center gap-1;
+}
+.nav-link.active {
+  @apply text-primary bg-primary/10;
+}
+
+/* Dropdown panel */
+.dropdown-panel {
+  @apply absolute top-full left-0 mt-1.5 rounded-xl shadow-2xl shadow-black/30 overflow-hidden;
+  background: oklch(0.17 0.006 260 / 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid oklch(0.28 0.01 260);
+}
+
+/* Dropdown item */
+.dropdown-item {
+  @apply flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-primary/10 transition-all duration-150 cursor-pointer;
+}
+
+/* Dropdown icon box */
+.dropdown-icon {
+  @apply w-10 h-10 rounded-lg flex items-center justify-center bg-primary/10 group-hover/item:bg-primary/20 transition-colors;
+}
+.dropdown-icon.amber {
+  @apply bg-amber-500/10 group-hover/item:bg-amber-500/20;
+}
+
+/* Dropdown item title */
+.dropdown-item-title {
+  @apply text-sm font-bold text-white transition-colors group-hover/item:text-primary;
+}
+.dropdown-item-title.amber {
+  @apply group-hover/item:text-amber-400;
+}
+
+/* Dropdown item description */
+.dropdown-item-desc {
+  @apply text-xs text-white/60 mt-0.5;
+}
+
+/* Mobile link */
+.mobile-link {
+  @apply block px-4 py-3 text-sm font-semibold text-white/90 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors;
+}
+
+/* Mobile dropdown item */
+.mobile-dropdown-item {
+  @apply flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/5 transition-all;
+}
+.mobile-dropdown-item-title {
+  @apply text-sm font-semibold text-white/90 transition-colors;
+}
+.mobile-dropdown-item-title.amber {
+  @apply group-hover/mob:text-amber-400;
+}
