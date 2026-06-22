@@ -1,0 +1,502 @@
+     1→export const companyInfo = {
+     2→  name: 'Wixtory İnşaat',
+     3→  nameEn: 'Wixtory Construction',
+     4→  founder: 'Hacı Celal Aygar',
+     5→  email: 'wixtorysoft@gmail.com',
+     6→  phone: '+905448358401',
+     7→  phoneDisplay: '+90 544 835 84 01',
+     8→  address: 'Levent Mah. Büyükdere Cad. No:123 Beşiktaş/İstanbul',
+     9→  workingHours: {
+    10→    tr: 'Pzt-Cum: 08:00-18:00',
+    11→    en: 'Mon-Fri: 08:00-18:00',
+    12→  },
+    13→  founded: 1999,
+    14→  social: {
+    15→    instagram: 'https://instagram.com/wixtoryinsaat',
+    16→    linkedin: 'https://linkedin.com/company/wixtoryinsaat',
+    17→    twitter: 'https://twitter.com/wixtoryinsaat',
+    18→  },
+    19→}
+    20→
+    21→export const stats = [
+    22→  { value: 350, suffix: '+', key: 'completedProjects' },
+    23→  { value: 2500, suffix: '+', key: 'happyClients' },
+    24→  { value: 25, suffix: '+', key: 'yearsExperience' },
+    25→  { value: 12, suffix: '', key: 'cities' },
+    26→]
+    27→
+    28→export type ProjectCategory = 'residential' | 'commercial' | 'infrastructure'
+    29→
+    30→export interface Project {
+    31→  id: number
+    32→  title: string
+    33→  titleEn: string
+    34→  location: string
+    35→  locationEn: string
+    36→  year: string
+    37→  category: ProjectCategory
+    38→  image: string
+    39→  description: string
+    40→  descriptionEn: string
+    41→  area: string
+    42→  status: 'completed' | 'ongoing' | 'planned'
+    43→  // Detailed page fields
+    44→  fullDescription?: string
+    45→  fullDescriptionEn?: string
+    46→  features?: string[]
+    47→  featuresEn?: string[]
+    48→  client?: string
+    49→  clientEn?: string
+    50→  duration?: string
+    51→  slug: string
+    52→  progress?: number
+    53→  gallery?: string[]
+    54→}
+    55→
+    56→export const projects: Project[] = [
+    57→  {
+    58→    id: 1,
+    59→    title: 'Skyline Residence',
+    60→    titleEn: 'Skyline Residence',
+    61→    location: 'İstanbul, Kadıköy',
+    62→    locationEn: 'Istanbul, Kadikoy',
+    63→    year: '2024',
+    64→    category: 'residential',
+    65→    image: '/images/project-residential.png',
+    66→    description: '42 katlı lüks rezidans projesi, 280 daire, panoramik boğaz manzarası.',
+    67→    descriptionEn: '42-story luxury residence project, 280 apartments, panoramic Bosphorus view.',
+    68→    area: '45.000 m²',
+    69→    status: 'ongoing',
+    70→    fullDescription: 'Skyline Residence, İstanbul\'un Kadıköy ilçesinde yükselen 42 katlı lüks rezidans projesidir. 280 ayrı daireden oluşan proje, panoramik Boğaz manzarasıyla dikkat çekmektedir. Akıllı ev sistemleri, kapalı otopark, yüzme havuzu ve fitness merkezi gibi donatılarla modern yaşam konforu sunmaktadır.',
+    71→    fullDescriptionEn: 'Skyline Residence is a 42-story luxury residence project rising in Istanbul\'s Kadikoy district. Consisting of 280 separate apartments, the project stands out with its panoramic Bosphorus view. It offers modern living comfort with amenities such as smart home systems, indoor parking, swimming pool, and fitness center.',
+    72→    features: ['42 kat, 280 daire', 'Panoramik Boğaz manzarası', 'Akıllı ev sistemleri', 'Kapalı otopark (400 araç)', 'Yüzme havuzu ve spa', 'Fitness merkezi'],
+    73→    featuresEn: ['42 floors, 280 apartments', 'Panoramic Bosphorus view', 'Smart home systems', 'Indoor parking (400 vehicles)', 'Swimming pool and spa', 'Fitness center'],
+    74→    client: 'Skyline Gayrimenkul',
+    75→    clientEn: 'Skyline Real Estate',
+    76→    duration: '2022 - 2024',
+    77→    slug: 'skyline-residence',
+    78→    progress: 78,
+    79→    gallery: ['/images/project-residential.png', '/images/project-interior.png'],
+    80→  },
+    81→  {
+    82→    id: 2,
+    83→    title: 'Marina Tower',
+    84→    titleEn: 'Marina Tower',
+    85→    location: 'İstanbul, Ataşehir',
+    86→    locationEn: 'Istanbul, Atasehir',
+    87→    year: '2023',
+    88→    category: 'commercial',
+    89→    image: '/images/project-commercial.png',
+    90→    description: 'A+ sınıfı ofis kulesi, akıllı bina teknolojileri ile donatılmış modern iş merkezi.',
+    91→    descriptionEn: 'A+ class office tower, modern business center equipped with smart building technologies.',
+    92→    area: '62.000 m²',
+    93→    status: 'completed',
+    94→    fullDescription: 'Marina Tower, Ataşehir finans bölgesinin kalbinde yükselen A+ sınıf ofis kulesidir. Akıllı bina yönetim sistemi, enerji verimli HVAC sistemi ve yüksek hızlı asansörlerle donatılmış olan bina, uluslararası standartlarda iş ortamı sunmaktadır.',
+    95→    fullDescriptionEn: 'Marina Tower is an A+ class office tower rising in the heart of Atasehir financial district. Equipped with smart building management system, energy-efficient HVAC system, and high-speed elevators, the building offers an international standard business environment.',
+    96→    features: ['A+ sınıf ofis alanları', 'Akıllı bina yönetimi', 'Enerji verimli HVAC', '12 yüksek hızlı asansör', 'Konferans salonları', 'Yemek katı ve kafeterya'],
+    97→    featuresEn: ['A+ class office spaces', 'Smart building management', 'Energy-efficient HVAC', '12 high-speed elevators', 'Conference halls', 'Dining floor and cafeteria'],
+    98→    client: 'Marina Yatırım Holding',
+    99→    clientEn: 'Marina Investment Holding',
+   100→    duration: '2020 - 2023',
+   101→    slug: 'marina-tower',
+   102→    gallery: ['/images/project-commercial.png'],
+   103→  },
+   104→  {
+   105→    id: 3,
+   106→    title: 'Green Valley Villas',
+   107→    titleEn: 'Green Valley Villas',
+   108→    location: 'Antalya, Konyaaltı',
+   109→    locationEn: 'Antalya, Konyaalti',
+   110→    year: '2024',
+   111→    category: 'residential',
+   112→    image: '/images/project-interior.png',
+   113→    description: 'Doğayla iç içe 48 villa, özel havuz ve peyzaj düzenlemesi.',
+   114→    descriptionEn: '48 villas surrounded by nature, private pools and landscaping.',
+   115→    area: '28.000 m²',
+   116→    status: 'ongoing',
+   117→    fullDescription: 'Green Valley Villas, Antalya Konyaaltı\'nda doğayla iç içe bir yaşam sunan 48 villalık lüks konut projesidir. Her villa özel havuz, geniş bahçe ve akıllı ev otomasyonu ile donatılmıştır. Sürdürülebilir malzeme kullanımı ve güneş enerjisi sistemiyle çevre dostu bir proje olma özelliği taşımaktadır.',
+   118→    fullDescriptionEn: 'Green Valley Villas is a luxury housing project of 48 villas offering a life intertwined with nature in Antalya Konyaalti. Each villa is equipped with a private pool, spacious garden, and smart home automation. It features eco-friendly design with sustainable material use and solar energy systems.',
+   119→    features: ['48 lüks villa', 'Özel havuz ve bahçe', 'Akıllı ev otomasyonu', 'Güneş enerjisi sistemi', '7/24 güvenlik', 'Ortak sosyal tesisler'],
+   120→    featuresEn: ['48 luxury villas', 'Private pool and garden', 'Smart home automation', 'Solar energy system', '24/7 security', 'Shared social facilities'],
+   121→    client: 'Green Valley Development',
+   122→    clientEn: 'Green Valley Development',
+   123→    duration: '2023 - 2024',
+   124→    slug: 'green-valley-villas',
+   125→    progress: 92,
+   126→    gallery: ['/images/project-interior.png', '/images/project-residential.png'],
+   127→  },
+   128→  {
+   129→    id: 4,
+   130→    title: 'Northern Highway Bridge',
+   131→    titleEn: 'Northern Highway Bridge',
+   132→    location: 'Ankara, Kızılcahamam',
+   133→    locationEn: 'Ankara, Kizilcahamam',
+   134→    year: '2022',
+   135→    category: 'infrastructure',
+   136→    image: '/images/project-infrastructure.png',
+   137→    description: '480 metre uzunluğunda viyadük, deprem bölgesi özel tasarım.',
+   138→    descriptionEn: '480-meter viaduct, special design for earthquake zone.',
+   139→    area: '480 m',
+   140→    status: 'completed',
+   141→    fullDescription: 'Northern Highway Bridge, Ankara-Kızılcahamam otoyol güzergahında yer alan 480 metre uzunluğunda viyadüktür. Deprem bölgesinde yer aldığı için özel sismik tasarım kriterlerine göre inşa edilmiştir. Yüksek dayanımlı beton ve özel çelik donatı kullanılarak uzun ömürlü ve güvenli bir yapı oluşturulmuştur.',
+   142→    fullDescriptionEn: 'Northern Highway Bridge is a 480-meter viaduct located on the Ankara-Kizilcahamam highway route. It was built according to special seismic design criteria as it is located in an earthquake zone. A long-lasting and safe structure was created using high-strength concrete and special steel reinforcement.',
+   143→    features: ['480 metre uzunluk', 'Sismik izolasyon sistemi', 'Yüksek dayanımlı beton', 'Çelik kompozit taşıyıcı', 'Deprem sensörleri', 'Otomatik yapısal izleme'],
+   144→    featuresEn: ['480 meters length', 'Seismic isolation system', 'High-strength concrete', 'Steel composite carrier', 'Earthquake sensors', 'Automated structural monitoring'],
+   145→    client: 'Karayolları Genel Müdürlüğü',
+   146→    clientEn: 'General Directorate of Highways',
+   147→    duration: '2019 - 2022',
+   148→    slug: 'northern-highway-bridge',
+   149→    gallery: ['/images/project-infrastructure.png'],
+   150→  },
+   151→  {
+   152→    id: 5,
+   153→    title: 'TechPark Campus',
+   154→    titleEn: 'TechPark Campus',
+   155→    location: 'İzmir, Bornova',
+   156→    locationEn: 'Izmir, Bornova',
+   157→    year: '2023',
+   158→    category: 'commercial',
+   159→    image: '/images/project-commercial.png',
+   160→    description: 'Teknoloji geliştirme bölgesi, 5 bina, ortak kullanım alanları.',
+   161→    descriptionEn: 'Technology development zone, 5 buildings, shared spaces.',
+   162→    area: '75.000 m²',
+   163→    status: 'completed',
+   164→    fullDescription: 'TechPark Campus, İzmir Bornova\'da faaliyet gösteren teknoloji geliştirme bölgesidir. 5 ayrı binadan oluşan kampüs, startup\'lar ve teknoloji şirketleri için özel tasarlanmış çalışma alanları, laboratuvarlar ve ortak kullanım alanları sunmaktadır.',
+   165→    fullDescriptionEn: 'TechPark Campus is a technology development zone operating in Izmir Bornova. The campus consists of 5 separate buildings and offers specially designed workspaces, laboratories, and shared spaces for startups and technology companies.',
+   166→    features: ['5 teknoloji binası', 'Ortak çalışma alanları', 'Araştırma laboratuvarları', 'Veri merkezi', 'Konferans ve etkinlik alanları', 'Kafeterya ve dinlenme alanları'],
+   167→    featuresEn: ['5 technology buildings', 'Co-working spaces', 'Research laboratories', 'Data center', 'Conference and event spaces', 'Cafeteria and rest areas'],
+   168→    client: 'İzmir Teknoloji Geliştirme A.Ş.',
+   169→    clientEn: 'Izmir Technology Development Inc.',
+   170→    duration: '2020 - 2023',
+   171→    slug: 'techpark-campus',
+   172→    gallery: ['/images/project-commercial.png'],
+   173→  },
+   174→  {
+   175→    id: 6,
+   176→    title: 'Bosphorus Heights',
+   177→    titleEn: 'Bosphorus Heights',
+   178→    location: 'İstanbul, Beşiktaş',
+   179→    locationEn: 'Istanbul, Besiktas',
+   180→    year: '2024',
+   181→    category: 'residential',
+   182→    image: '/images/project-residential.png',
+   183→    description: 'Prestijli konumda lüks yaşam projesi, özel tasarım daireler.',
+   184→    descriptionEn: 'Luxury living project in a prestigious location, custom-designed apartments.',
+   185→    area: '35.000 m²',
+   186→    status: 'planned',
+   187→    fullDescription: 'Bosphorus Heights, İstanbul Beşiktaş\'ın en prestijli lokasyonlarında yükselmesi planlanan lüks konut projesidir. Özel tasarımlı daireler, panoramik manzara ve dünya standartlarında yaşam konforu sunacaktır.',
+   188→    fullDescriptionEn: 'Bosphorus Heights is a luxury housing project planned to rise in Istanbul Besiktas\'s most prestigious locations. It will offer custom-designed apartments, panoramic views, and world-class living comfort.',
+   189→    features: ['Özel tasarım daireler', 'Panoramik Boğaz manzarası', 'Lobi ve resepsiyon hizmeti', 'Kapıcı daireleri', 'Otopark', 'Peyzaj düzenlemesi'],
+   190→    featuresEn: ['Custom-designed apartments', 'Panoramic Bosphorus view', 'Lobby and reception service', 'Concierge apartments', 'Parking', 'Landscaping'],
+   191→    client: 'Planlanan Proje',
+   192→    clientEn: 'Planned Project',
+   193→    duration: '2024 - 2026',
+   194→    slug: 'bosphorus-heights',
+   195→    gallery: ['/images/project-residential.png'],
+   196→  },
+   197→  // ===== DEVAM EDEN PROJELER =====
+   198→  {
+   199→    id: 7,
+   200→    title: 'Azure Panorama',
+   201→    titleEn: 'Azure Panorama',
+   202→    location: 'İstanbul, Bakırköy',
+   203→    locationEn: 'Istanbul, Bakirkoy',
+   204→    year: '2025',
+   205→    category: 'residential',
+   206→    image: '/images/project-residential.png',
+   207→    description: 'Deniz manzaralı 36 katlı rezidans, 220 daire, akıllı ev otomasyonu.',
+   208→    descriptionEn: '36-story sea-view residence, 220 apartments, smart home automation.',
+   209→    area: '52.000 m²',
+   210→    status: 'ongoing',
+   211→    fullDescription: 'Azure Panorama, İstanbul Bakırköy sahil şeridinde yükselen 36 katlı lüks rezidans projesidir. 220 daireden oluşan proje, Marmara Denizi manzarası, akıllı ev otomasyonu ve sürdürülebilir enerji sistemleriyle donatılmıştır. İki kule şeklinde tasarlanan proje, geniş peyzaj alanları ve sosyal donatılarıyla dikkat çekmektedir.',
+   212→    fullDescriptionEn: 'Azure Panorama is a 36-story luxury residence project rising on the Bakirkoy coastline of Istanbul. Consisting of 220 apartments, the project is equipped with Marmara Sea views, smart home automation, and sustainable energy systems. Designed as two towers, the project stands out with its spacious landscaping and social amenities.',
+   213→    features: ['36 kat, 220 daire', 'Marmara Denizi manzarası', 'Akıllı ev otomasyonu', 'Kapalı otopark (350 araç)', 'Yüzme havuzu ve spor salonu', 'Çocuk oyun alanları'],
+   214→    featuresEn: ['36 floors, 220 apartments', 'Marmara Sea view', 'Smart home automation', 'Indoor parking (350 vehicles)', 'Swimming pool and gym', "Children's playgrounds"],
+   215→    client: 'Azure Gayrimenkul',
+   216→    clientEn: 'Azure Real Estate',
+   217→    duration: '2024 - 2025',
+   218→    slug: 'azure-panorama',
+   219→    progress: 45,
+   220→    gallery: ['/images/project-residential.png', '/images/project-interior.png'],
+   221→  },
+   222→  {
+   223→    id: 8,
+   224→    title: 'Metro Business Hub',
+   225→    titleEn: 'Metro Business Hub',
+   226→    location: 'Ankara, Çankaya',
+   227→    locationEn: 'Ankara, Cankaya',
+   228→    year: '2025',
+   229→    category: 'commercial',
+   230→    image: '/images/project-commercial.png',
+   231→    description: 'Metro ulaşımına entegre karma kullanım merkezi, ofisler ve ticari alanlar.',
+   232→    descriptionEn: 'Metro-integrated mixed-use center, offices and commercial spaces.',
+   233→    area: '85.000 m²',
+   234→    status: 'ongoing',
+   235→    fullDescription: "Metro Business Hub, Ankara Çankaya'da metro hattına doğrudan entegre olan karma kullanım projesidir. 3 ofis kulesi ve bir ticari podesterden oluşan proje, yeşil bina sertifikası hedefiyle tasarlanmaktadır. Helikopter pisti, konferans merkezi ve yeraltı otoparkı ile başkentin en kapsamlı iş merkezi olacaktır.",
+   236→    fullDescriptionEn: "Metro Business Hub is a mixed-use project directly integrated with the metro line in Ankara Cankaya. Consisting of 3 office towers and a commercial podium, the project is designed with a green building certification target. With a helipad, conference center, and underground parking, it will be the capital's most comprehensive business center.",
+   237→    features: ['3 ofis kulesi', 'Metro entegrasyonu', 'Yeşil bina sertifikası', 'Helikopter pisti', 'Konferans merkezi', '2.000 araçlık otopark'],
+   238→    featuresEn: ['3 office towers', 'Metro integration', 'Green building certification', 'Helipad', 'Conference center', '2,000-vehicle parking'],
+   239→    client: 'Ankara Büyükşehir Belediyesi',
+   240→    clientEn: 'Ankara Metropolitan Municipality',
+   241→    duration: '2023 - 2025',
+   242→    slug: 'metro-business-hub',
+   243→    progress: 62,
+   244→    gallery: ['/images/project-commercial.png'],
+   245→  },
+   246→  {
+   247→    id: 9,
+   248→    title: 'Sakarya Köprüsü',
+   249→    titleEn: 'Sakarya Bridge',
+   250→    location: 'Sakarya, Adapazarı',
+   251→    locationEn: 'Sakarya, Adapazari',
+   252→    year: '2025',
+   253→    category: 'infrastructure',
+   254→    image: '/images/project-infrastructure.png',
+   255→    description: '680 metre uzunluğunda otoyol köprüsü, deprem izolasyonlu taşıyıcı sistem.',
+   256→    descriptionEn: '680-meter highway bridge, earthquake-isolated structural system.',
+   257→    area: '680 m',
+   258→    status: 'ongoing',
+   259→    fullDescription: "Sakarya Köprüsü, Kuzey Marmara Otoyolu güzergahında inşa edilen 680 metre uzunluğunda otoyol köprüsüdür. 1. derece deprem bölgesinde yer aldığı için gelişmiş sismik izolasyon sistemi ile donatılmıştır. Köprünün taşıyıcı sistemi, olası 9 şiddetindeki depreme dayanıklı olarak tasarlanmıştır.",
+   260→    fullDescriptionEn: "Sakarya Bridge is a 680-meter highway bridge under construction on the Northern Marmara Highway route. Since it is located in a first-degree earthquake zone, it is equipped with an advanced seismic isolation system. The bridge's structural system is designed to withstand a possible magnitude 9 earthquake.",
+   261→    features: ['680 metre uzunluk', 'Gelişmiş sismik izolasyon', '9 şiddetinde depreme dayanıklı', 'Çelik kompozit yapı', 'Akıllı yapısal izleme', 'Otomatik aydınlatma sistemi'],
+   262→    featuresEn: ['680 meters length', 'Advanced seismic isolation', 'Magnitude 9 earthquake resistant', 'Steel composite structure', 'Smart structural monitoring', 'Automated lighting system'],
+   263→    client: 'Karayolları Genel Müdürlüğü',
+   264→    clientEn: 'General Directorate of Highways',
+   265→    duration: '2023 - 2025',
+   266→    slug: 'sakarya-koprusu',
+   267→    progress: 35,
+   268→    gallery: ['/images/project-infrastructure.png'],
+   269→  },
+   270→  {
+   271→    id: 10,
+   272→    title: 'Ege Sunset Resort',
+   273→    titleEn: 'Ege Sunset Resort',
+   274→    location: 'Muğla, Bodrum',
+   275→    locationEn: 'Mugla, Bodrum',
+   276→    year: '2026',
+   277→    category: 'residential',
+   278→    image: '/images/project-interior.png',
+   279→    description: "Bodrum'da butik tatil köyü, 120 villa, özel plaj ve marinaya erişim.",
+   280→    descriptionEn: 'Boutique holiday resort in Bodrum, 120 villas, private beach and marina access.',
+   281→    area: '95.000 m²',
+   282→    status: 'ongoing',
+   283→    fullDescription: "Ege Sunset Resort, Muğla Bodrum'da inşa edilen butik tatil köyü projesidir. 120 müstakil villadan oluşan proje, özel plaj erişimi, yat marinası ve 5 yıldızlı otel hizmetleri sunmaktadır. Doğal taş ve ahşap malzemelerin yoğun kullanıldığı proje, Ege mimarisinin modern bir yorumudur.",
+   284→    fullDescriptionEn: 'Ege Sunset Resort is a boutique holiday resort project under construction in Mugla Bodrum. Consisting of 120 detached villas, the project offers private beach access, yacht marina, and 5-star hotel services. The project, which makes extensive use of natural stone and wood materials, is a modern interpretation of Aegean architecture.',
+   285→    features: ['120 butik villa', 'Özel plaj erişimi', 'Yat marinası', '5 yıldızlı otel hizmeti', 'Doğal taş ve ahşap tasarım', 'Spa ve wellness merkezi'],
+   286→    featuresEn: ['120 boutique villas', 'Private beach access', 'Yacht marina', '5-star hotel service', 'Natural stone and wood design', 'Spa and wellness center'],
+   287→    client: 'Ege Turizm A.Ş.',
+   288→    clientEn: 'Ege Tourism Inc.',
+   289→    duration: '2025 - 2026',
+   290→    slug: 'ege-sunset-resort',
+   291→    progress: 18,
+   292→    gallery: ['/images/project-interior.png', '/images/project-residential.png'],
+   293→  },
+   294→]
+   295→
+   296→export const testimonials = [
+   297→  {
+   298→    id: 1,
+   299→    name: 'Ahmet Yılmaz',
+   300→    role: 'Yatırımcı',
+   301→    roleEn: 'Investor',
+   302→    company: 'Yılmaz Holding',
+   303→    content: 'Wixtory İnşaat ile çalışmak gerçekten harika bir deneyimdi. Projemizi zamanında ve bütçemizle tamamladılar. Kalite ve profesyonellikleri takdire şayan.',
+   304→    contentEn: 'Working with Wixtory İnşaat was truly a great experience. They completed our project on time and within budget. Their quality and professionalism are commendable.',
+   305→    rating: 5,
+   306→  },
+   307→  {
+   308→    id: 2,
+   309→    name: 'Elif Demir',
+   310→    role: 'Proje Yöneticisi',
+   311→    roleEn: 'Project Manager',
+   312→    company: 'Demir Gayrimenkul',
+   313→    content: 'Skyline Residence projemizde Wixtory İnşaat\'nın mühendislik uzmanlığı ve sorun çözme kabiliyeti etkileyiciydi. Her aşamada şeffaf iletişim kurdular.',
+   314→    contentEn: 'Wixtory İnşaat\'s engineering expertise and problem-solving ability in our Skyline Residence project was impressive. They maintained transparent communication at every stage.',
+   315→    rating: 5,
+   316→  },
+   317→  {
+   318→    id: 3,
+   319→    name: 'Mehmet Kaya',
+   320→    role: 'Genel Müdür',
+   321→    roleEn: 'General Manager',
+   322→    company: 'Kaya İnşaat',
+   323→    content: 'Ortak projemizde Wixtory İnşaat ekibinin disiplini ve teknik kapasitesi sayesinde zorlu engelleri kolayca aştık. Kesinlikle tavsiye ediyorum.',
+   324→    contentEn: 'Thanks to the discipline and technical capacity of the Wixtory İnşaat team in our joint project, we easily overcame difficult obstacles. I definitely recommend them.',
+   325→    rating: 5,
+   326→  },
+   327→  {
+   328→    id: 4,
+   329→    name: 'Selin Özkan',
+   330→    role: 'Mimar',
+   331→    roleEn: 'Architect',
+   332→    company: 'Özkan Mimarlık',
+   333→    content: 'Wixtory İnşaat, mimari vizyonumuzu mükemmel bir şekilde hayata geçirdi. Detaylara gösterdikleri özen ve kalite anlayışları beni çok etkiledi.',
+   334→    contentEn: 'Wixtory İnşaat perfectly brought our architectural vision to life. I was very impressed by their attention to detail and quality approach.',
+   335→    rating: 5,
+   336→  },
+   337→]
+   338→
+   339→export const partnerCompanies = [
+   340→  'Yılmaz Holding',
+   341→  'Demir Grup',
+   342→  'Kaya İnşaat',
+   343→  'Özkan Mimarlık',
+   344→  'Atlas Gayrimenkul',
+   345→]
+   346→
+   347→export const faqItems = [
+   348→  {
+   349→    question: 'Proje süreci nasıl işliyor?',
+   350→    questionEn: 'How does the project process work?',
+   351→    answer: 'Proje sürecimiz; ihtiyaç analizi, fizibilite çalışması, mimari tasarım, inşaat ve teslim aşamalarından oluşmaktadır. Her aşamada müşterilerimizle şeffaf iletişim kurarak, projenin istenen kalitede ve sürede tamamlanmasını sağlıyoruz.',
+   352→    answerEn: 'Our project process consists of needs analysis, feasibility study, architectural design, construction, and delivery phases. We maintain transparent communication with our clients at every stage, ensuring the project is completed with the desired quality and on time.',
+   353→  },
+   354→  {
+   355→    question: 'Inşaat süresi ne kadar sürer?',
+   356→    questionEn: 'How long does construction take?',
+   357→    answer: 'İnşaat süresi projenin büyüklüğüne ve türüne göre değişiklik gösterir. Bir konut projesi genellikle 12-24 ay, ticari projeler ise 18-36 ay arasında tamamlanır. Detaylı süre planlamasını proje başlangıcında paylaşıyoruz.',
+   358→    answerEn: 'Construction time varies depending on the size and type of the project. A residential project is typically completed in 12-24 months, while commercial projects take 18-36 months. We share detailed scheduling at the project start.',
+   359→  },
+   360→  {
+   361→    question: 'Fiyatlandırma nasıl yapılıyor?',
+   362→    questionEn: 'How is pricing determined?',
+   363→    answer: 'Fiyatlandırma, projenin kapsamına, kullanılacak malzemelere, lokasyona ve süre boyutuna göre belirlenmektedir. Ücretsiz keşif ve danışmanlık hizmetimizle projeniz için detaylı bir maliyet analizi sunuyoruz.',
+   364→    answerEn: 'Pricing is determined based on the project scope, materials to be used, location, and duration. With our free survey and consultation service, we provide a detailed cost analysis for your project.',
+   365→  },
+   366→  {
+   367→    question: 'Garanti kapsamı nedir?',
+   368→    questionEn: 'What does the warranty cover?',
+   369→    answer: 'Tüm projelerimizde yapısal garanti sunuyoruz. Yapısal elemanlar için 10 yıl, tesisat ve donanımlar için 2 yıl, boyalı yüzeyler için 1 yıl garanti sağlıyoruz. Garanti koşullarını projeye özel olarak detaylandırıyoruz.',
+   370→    answerEn: 'We offer structural warranty on all our projects. We provide 10 years for structural elements, 2 years for plumbing and fixtures, and 1 year for painted surfaces. We detail warranty conditions specifically for each project.',
+   371→  },
+   372→  {
+   373→    question: 'Depreme dayanıklı yapılar inşa ediyor musunuz?',
+   374→    questionEn: 'Do you build earthquake-resistant structures?',
+   375→    answer: 'Evet, tüm yapılarımız Türkiye Deprem Yönetmeliği\'ne uygun olarak tasarlanmakta ve inşa edilmektedir. Deprem bölgelerinde özel sismik tasarım kriterleri uyguluyoruz ve yapısal sağlığı izleme sistemleri kullanıyoruz.',
+   376→    answerEn: 'Yes, all our structures are designed and built in accordance with the Turkish Earthquake Code. We apply special seismic design criteria in earthquake zones and use structural health monitoring systems.',
+   377→  },
+   378→  {
+   379→    question: 'Çevre dostu inşaat yöntemleri kullanıyor musunuz?',
+   380→    questionEn: 'Do you use eco-friendly construction methods?',
+   381→    answer: 'Evet, sürdürülebilir inşaat uygulamalarına büyük önem veriyoruz. Geri dönüştürülebilir malzemeler, enerji verimli sistemler, güneş enerjisi entegrasyonu ve yeşil çatı uygulamaları gibi çevre dostu yöntemleri projelerimizde kullanıyoruz.',
+   382→    answerEn: 'Yes, we attach great importance to sustainable construction practices. We use eco-friendly methods such as recyclable materials, energy-efficient systems, solar energy integration, and green roof applications in our projects.',
+   383→  },
+   384→  {
+   385→    question: 'Proje sürecinde nasıl bilgilendirileceğim?',
+   386→    questionEn: 'How will I be informed during the project?',
+   387→    answer: 'Her projeye özel bir proje yöneticisi atanmaktadır. Haftalık ilerleme raporları, düzenli toplantılar ve dijital proje takip platformumuz üzerinden süreci şeffaf bir şekilde paylaşarak bilgilendirme yapıyoruz.',
+   388→    answerEn: 'A dedicated project manager is assigned to each project. We provide information by sharing the process transparently through weekly progress reports, regular meetings, and our digital project tracking platform.',
+   389→  },
+   390→  {
+   391→    question: 'Tadilat ve restorasyon projeleri yapıyor musunuz?',
+   392→    questionEn: 'Do you do renovation and restoration projects?',
+   393→    answer: 'Evet, tarihi yapıların restorasyonu ve mevcut yapıların modern tadilatını gerçekleştiriyoruz. Kültürel mirasa saygılı restorasyon çalışmaları, yapı güçlendirme ve modern dönüşüm projeleri uzmanlık alanlarımız arasındadır.',
+   394→    answerEn: 'Yes, we carry out careful restoration of historical buildings and modern renovation of existing structures. Culturally respectful restoration work, structural strengthening, and modern transformation projects are among our areas of expertise.',
+   395→  },
+   396→]
+   397→
+   398→export function getCompletedProjects(): Project[] {
+   399→  return projects.filter(p => p.status === 'completed')
+   400→}
+   401→
+   402→export function getOngoingProjects(): Project[] {
+   403→  return projects.filter(p => p.status === 'ongoing')
+   404→}
+   405→
+   406→export function getProjectBySlug(slug: string): Project | undefined {
+   407→  return projects.find(p => p.slug === slug)
+   408→}
+   409→
+   410→export type NewsCategory = 'corporate' | 'project' | 'sector'
+   411→
+   412→export interface NewsItem {
+   413→  id: number
+   414→  title: string
+   415→  titleEn: string
+   416→  summary: string
+   417→  summaryEn: string
+   418→  content: string
+   419→  contentEn: string
+   420→  date: string
+   421→  category: NewsCategory
+   422→  image: string
+   423→  slug: string
+   424→}
+   425→
+   426→export const newsItems: NewsItem[] = [
+   427→  {
+   428→    id: 1,
+   429→    title: 'Azure Panorama Projesinde Çelik Konstrüksiyon Aşaması Tamamlandı',
+   430→    titleEn: 'Steel Construction Phase Completed in Azure Panorama Project',
+   431→    summary: 'Bakırköy\'de inşaatı devam eden Azure Panorama projesinde çelik konstrüksiyon aşaması başarıyla tamamlandı.',
+   432→    summaryEn: 'The steel construction phase has been successfully completed in the Azure Panorama project under construction in Bakirkoy.',
+   433→    content: 'Wixtory İnşaat\'ın İstanbul Bakırköy\'de inşa ettiği Azure Panorama projesinde önemli bir milesta daha geride kaldı. 36 katlı lüks rezidans projesinin çelik konstrüksiyon aşaması planlanan sürede ve bütçede tamamlandı. Proje genel ilerlemesi %45\'e ulaştı.\n\nProje kapsamında 220 daire, kapalı otopark, yüzme havuzu ve spor salonu bulunacak. Bir sonraki aşamada cephe kaplama ve mekanik tesisat işlerine başlanması planlanıyor.',
+   434→    contentEn: 'An important milestone has been reached in the Azure Panorama project being built by Wixtory İnşaat in Istanbul Bakirkoy. The steel construction phase of the 36-story luxury residence project was completed on schedule and within budget. The overall project progress has reached 45%.\n\nThe project will include 220 apartments, indoor parking, swimming pool, and gym. The next phase will begin with facade cladding and mechanical installation work.',
+   435→    date: '2025-02-15',
+   436→    category: 'project',
+   437→    image: '/images/project-residential.png',
+   438→    slug: 'azure-panorama-celik-konstruksiyon-tamamlandi',
+   439→  },
+   440→  {
+   441→    id: 2,
+   442→    title: 'Wixtory İnşaat, ISO 45001 Sertifikasını Aldı',
+   443→    titleEn: 'Wixtory İnşaat Receives ISO 45001 Certification',
+   444→    summary: 'İş sağlığı ve güvenliği yönetim sistemimizi belgelendirdik. Tüm şantiyelerimizde ISG standartlarını yükseltiyoruz.',
+   445→    summaryEn: 'We have certified our occupational health and safety management system. We are raising OHS standards across all our construction sites.',
+   446→    content: 'Wixtory İnşaat, iş sağlığı ve güvenliği alanındaki taahhüdünü bir adım ileriye taşıyarak ISO 45001:2018 sertifikasını almaya hak kazandı. Bu sertifika, tüm şantiyelerimizde iş sağlığı ve güvenliği standartlarını en üst düzeyde tuttuğumuzun uluslararası bir onayıdır.\n\nSertifikasyon sürecinde tüm departmanlarımız aktif rol aldı ve 2 yıllık bir hazırlık döneminin ardından denetimler başarıyla tamamlandı. Çalışanlarımızın güvenliği her zaman önceliğimizdir.',
+   447→    contentEn: 'Wixtory İnşaat has earned the ISO 45001:2018 certification, taking its commitment to occupational health and safety one step further. This certification is an international endorsement that we maintain the highest OHS standards across all our construction sites.\n\nAll our departments played an active role in the certification process, and audits were successfully completed after a 2-year preparation period. The safety of our employees is always our priority.',
+   448→    date: '2025-01-20',
+   449→    category: 'corporate',
+   450→    image: '/images/project-commercial.png',
+   451→    slug: 'wixtory-iso-45001-sertifikasi-aldi',
+   452→  },
+   453→  {
+   454→    id: 3,
+   455→    title: 'Türkiye İnşaat Sektörü 2025\'te Büyüme Bekleniyor',
+   456→    titleEn: 'Turkish Construction Sector Expected to Grow in 2025',
+   457→    summary: 'Sektör raporlarına göre 2025 yılında inşaat sektörü %8-10 büyüme kaydetmesi öngörülüyor.',
+   458→    summaryEn: 'According to industry reports, the construction sector is forecast to grow 8-10% in 2025.',
+   459→    content: 'Türkiye İnşaat Sanayicileri Derneği\'nin son raporuna göre, 2025 yılında inşaat sektöründe kayda değer bir büyüme bekleniyor. Altyapı yatırımları ve konut talebindeki artış, sektörü canlandıran ana faktörler arasında yer alıyor.\n\nWixtory İnşaat olarak, sektördeki bu olumlu gelişmeleri değerlendirerek yeni projeler planlıyor ve yatırımlarımıza devam ediyoruz. Sürdürülebilir inşaat uygulamalarına olan ilginin artması, yeşil bina sertifikalı projelerimizin sayısını artırmamıza vesile oluyor.',
+   460→    contentEn: 'According to the latest report from the Turkish Construction Industry Association, significant growth is expected in the construction sector in 2025. Infrastructure investments and increasing housing demand are among the main factors driving the sector.\n\nAs Wixtory İnşaat, we are evaluating these positive developments in the sector, planning new projects and continuing our investments. The growing interest in sustainable construction practices is leading us to increase the number of our green building certified projects.',
+   461→    date: '2025-02-01',
+   462→    category: 'sector',
+   463→    image: '/images/project-infrastructure.png',
+   464→    slug: 'turkiye-insaat-sektoru-2025-buyume-beklentisi',
+   465→  },
+   466→  {
+   467→    id: 4,
+   468→    title: 'Metro Business Hub Projesi %62 Tamamlandı',
+   469→    titleEn: 'Metro Business Hub Project Reaches 62% Completion',
+   470→    summary: 'Ankara\'nın en büyük karma kullanım projesinde kaba inşaat aşaması tamamlandı.',
+   471→    summaryEn: 'Rough construction phase completed in Ankara\'s largest mixed-use project.',
+   472→    content: 'Ankara Çankaya\'da inşaatı devam eden Metro Business Hub projesi %62 tamamlandı. 3 ofis kulesi ve bir ticari podesterden oluşan projede kaba inşaat aşaması başarıyla tamamlandı.\n\nProje, metro hattına doğrudan entegrasyonuyla dikkat çekiyor. Yeşil bina sertifikası hedefiyle tasarlanan Metro Business Hub, tamamlandığında başkentin en kapsamlı iş merkezi olacak. 2025 sonunda teslim edilmesi planlanıyor.',
+   473→    contentEn: 'The Metro Business Hub project under construction in Ankara Cankaya has reached 62% completion. The rough construction phase has been successfully completed in the project consisting of 3 office towers and a commercial podium.\n\nThe project stands out with its direct integration with the metro line. Designed with a green building certification target, Metro Business Hub will be the capital\'s most comprehensive business center when completed. Delivery is planned for the end of 2025.',
+   474→    date: '2025-02-10',
+   475→    category: 'project',
+   476→    image: '/images/project-commercial.png',
+   477→    slug: 'metro-business-hub-yuzde-62-tamamlandi',
+   478→  },
+   479→  {
+   480→    id: 5,
+   481→    title: 'Wixtory İnşaat Yılın En İyi İşveren Ödülü\'ne Aday',
+   482→    titleEn: 'Wixtory İnşaat Nominated for Employer of the Year Award',
+   483→    summary: 'İnsan kaynakları uygulamalarımız ve çalışan memnuniyeti politikalarımızla ödüle aday gösterildik.',
+   484→    summaryEn: 'We have been nominated for the award with our HR practices and employee satisfaction policies.',
+   485→    content: 'Wixtory İnşaat, insan kaynakları uygulamaları ve çalışan memnuniyeti politikalarıyla "Yılın En İyi İşveren" ödülüne aday gösterildi. Adaylık sürecinde çalışan memnuniyeti anketleri, iş sağlığı ve güvenliği uygulamaları ve kariyer geliştirme programlarımız değerlendirildi.\n\n10.000\'i aşkın çalışanımızla büyümeye devam ederken, insan odaklı yaklaşımımızı korumak en büyük gurur kaynağımızdır.',
+   486→    contentEn: 'Wixtory İnşaat has been nominated for the "Employer of the Year" award for its human resources practices and employee satisfaction policies. During the nomination process, our employee satisfaction surveys, occupational health and safety practices, and career development programs were evaluated.\n\nContinuing to grow with over 10,000 employees, maintaining our people-focused approach is our greatest source of pride.',
+   487→    date: '2025-01-28',
+   488→    category: 'corporate',
+   489→    image: '/images/about-team.png',
+   490→    slug: 'wixtory-yilin-en-iyi-isveren-odulune-aday',
+   491→  },
+   492→]
+   493→
+   494→export function getNewsByCategory(category: NewsCategory | 'all'): NewsItem[] {
+   495→  if (category === 'all') return newsItems
+   496→  return newsItems.filter(n => n.category === category)
+   497→}
+   498→
+   499→export function getNewsBySlug(slug: string): NewsItem | undefined {
+   500→  return newsItems.find(n => n.slug === slug)
+   501→}
+   502→
