@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { CheckCircle2, Target, Eye, Users, Award, Shield } from 'lucide-react'
 import { useI18n } from '@/lib/i18n'
 import { companyInfo } from '@/data/content'
-import { IMAGES } from '@/data/images'
 
 export default function AboutPage() {
   const { t } = useI18n()
@@ -13,12 +12,12 @@ export default function AboutPage() {
     <div className="min-h-screen pt-24 pb-16">
       {/* Hero */}
       <section className="relative py-16 sm:py-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={IMAGES.aboutTeam} alt="Hakkımızda" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 pointer-events-none">
+          <img src="/images/about-team.png" alt="Hakkımızda" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -60,7 +59,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-primary/5 rounded-3xl blur-2xl" />
                 <img
-                  src={IMAGES.aboutTeam}
+                  src="/images/about-team.png"
                   alt="Wixtory İnşaat Ekibi"
                   className="relative rounded-2xl w-full object-cover shadow-2xl"
                 />

@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { useI18n } from '@/lib/i18n'
 import { faqItems } from '@/data/content'
-import { IMAGES } from '@/data/images'
 import { useState } from 'react'
 
 export default function FAQPage() {
@@ -15,12 +14,12 @@ export default function FAQPage() {
     <div className="min-h-screen pt-24 pb-16">
       {/* Hero */}
       <section className="relative py-16 sm:py-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={IMAGES.bgFaq} alt="S.S.S" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 pointer-events-none">
+          <img src="/images/bg-faq.png" alt="S.S.S" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

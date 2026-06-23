@@ -5,7 +5,6 @@ import { ArrowRight, Play, Shield, Award, Clock } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { useI18n } from '@/lib/i18n'
-import { IMAGES } from '@/data/images'
 
 export default function Hero() {
   const { t } = useI18n()
@@ -13,9 +12,9 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         <img
-          src={IMAGES.hero}
+          src="/images/hero-construction.png"
           alt="İnşaat Projesi"
           className="w-full h-full object-cover"
         />

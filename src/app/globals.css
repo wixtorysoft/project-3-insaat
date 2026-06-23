@@ -210,12 +210,27 @@ html {
   animation: count-up 0.5s ease-out forwards;
 }
 
-/* Gradient text */
+/* Gradient text — fully protected from hover/transition interference */
 .gradient-text {
-  background: linear-gradient(135deg, oklch(0.78 0.164 70), oklch(0.85 0.15 55));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: linear-gradient(135deg, oklch(0.78 0.164 70), oklch(0.85 0.15 55)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  transition: none !important;
+}
+/* Force gradient text to stay visible under ANY hover state */
+a:hover .gradient-text,
+button:hover .gradient-text,
+.group:hover .gradient-text,
+.group\/card:hover .gradient-text,
+[data-hover]:hover .gradient-text,
+*:hover > .gradient-text {
+  background: linear-gradient(135deg, oklch(0.78 0.164 70), oklch(0.85 0.15 55)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
 }
 
 /* Glass effect */
@@ -223,12 +238,12 @@ html {
   background: oklch(0.17 0.006 260 / 0.8);
   backdrop-filter: blur(12px);
   border: 1px solid oklch(0.28 0.01 260);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Card hover effects */
 .card-hover {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card-hover:hover {
   transform: translateY(-6px);
@@ -237,7 +252,7 @@ html {
 }
 
 .card-hover-lift {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card-hover-lift:hover {
   transform: translateY(-8px) scale(1.02);
@@ -246,7 +261,7 @@ html {
 }
 
 .card-hover-glow {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
 .card-hover-glow::before {
@@ -256,7 +271,7 @@ html {
   border-radius: inherit;
   background: linear-gradient(135deg, oklch(0.78 0.164 70 / 0), oklch(0.78 0.164 70 / 0));
   z-index: -1;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: inherit;
 }
 .card-hover-glow:hover::before {
@@ -271,7 +286,7 @@ html {
 
 /* Icon bounce on hover */
 .icon-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .group:hover .icon-hover {
   transform: scale(1.15) rotate(-5deg);
@@ -308,7 +323,7 @@ html {
 /* Border gradient on hover */
 .border-gradient-hover {
   position: relative;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .border-gradient-hover::before {
   content: '';
@@ -320,7 +335,7 @@ html {
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
 }
 .border-gradient-hover:hover::before {
@@ -341,7 +356,7 @@ html {
   inset: -4px;
   border-radius: inherit;
   border: 2px solid oklch(0.78 0.164 70 / 0);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
 }
 .pulse-ring-hover:hover::after {
@@ -394,73 +409,18 @@ html {
   background: linear-gradient(90deg, transparent, oklch(0.78 0.164 70 / 0.3), transparent);
 }
 
-/* Smooth transition for all interactive elements */
+/* Smooth transition for interactive elements */
 a, button {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ─── Navbar Styles ─────────────────────────────────── */
-
-/* Top nav link */
-.nav-link {
-  @apply px-3 xl:px-4 py-2 text-sm font-semibold text-white rounded-lg transition-all duration-200;
-}
-.nav-link:hover {
-  @apply text-primary bg-white/5;
-}
-.nav-link.with-chevron {
-  @apply flex items-center gap-1;
-}
-.nav-link.active {
-  @apply text-primary bg-primary/10;
-}
-
-/* Dropdown panel */
-.dropdown-panel {
-  @apply absolute top-full left-0 mt-1.5 rounded-xl shadow-2xl shadow-black/30 overflow-hidden;
-  background: oklch(0.17 0.006 260 / 0.8);
-  backdrop-filter: blur(12px);
-  border: 1px solid oklch(0.28 0.01 260);
-}
-
-/* Dropdown item */
-.dropdown-item {
-  @apply flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-primary/10 transition-all duration-150 cursor-pointer;
-}
-
-/* Dropdown icon box */
-.dropdown-icon {
-  @apply w-10 h-10 rounded-lg flex items-center justify-center bg-primary/10 group-hover/item:bg-primary/20 transition-colors;
-}
-.dropdown-icon.amber {
-  @apply bg-amber-500/10 group-hover/item:bg-amber-500/20;
-}
-
-/* Dropdown item title */
-.dropdown-item-title {
-  @apply text-sm font-bold text-white transition-colors group-hover/item:text-primary;
-}
-.dropdown-item-title.amber {
-  @apply group-hover/item:text-amber-400;
-}
-
-/* Dropdown item description */
-.dropdown-item-desc {
-  @apply text-xs text-white/60 mt-0.5;
-}
-
-/* Mobile link */
-.mobile-link {
-  @apply block px-4 py-3 text-sm font-semibold text-white/90 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors;
-}
-
-/* Mobile dropdown item */
-.mobile-dropdown-item {
-  @apply flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/5 transition-all;
-}
-.mobile-dropdown-item-title {
-  @apply text-sm font-semibold text-white/90 transition-colors;
-}
-.mobile-dropdown-item-title.amber {
-  @apply group-hover/mob:text-amber-400;
+/* Protect text-foreground headings from hover color transitions */
+/* Only applies to .text-foreground WITHOUT .transition-colors */
+h1.text-foreground,
+h2.text-foreground,
+h1 .text-foreground,
+h2 .text-foreground,
+h1 > .text-foreground,
+h2 > .text-foreground {
+  transition: none !important;
 }

@@ -5,7 +5,6 @@ import { Building2, Home, Factory, Ruler, Hammer, TreePine, ArrowRight, CheckCir
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
 import { Button } from '@/components/ui/button'
-import { IMAGES } from '@/data/images'
 
 const serviceIcons = [Building2, Home, Factory, Ruler, Hammer, TreePine]
 
@@ -16,12 +15,12 @@ export default function ServicesPage() {
     <div className="min-h-screen pt-24 pb-16">
       {/* Hero */}
       <section className="relative py-16 sm:py-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={IMAGES.bgServices} alt="Hizmetler" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 pointer-events-none">
+          <img src="/images/bg-services.png" alt="Hizmetler" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -61,8 +60,8 @@ export default function ServicesPage() {
               >
                 <div className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}>
                   <div className={!isEven ? 'lg:order-2' : ''}>
-                    <div className="glass card-hover-lift shine-effect rounded-2xl p-8 sm:p-10">
-                      <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-all duration-300">
+                    <div className="group/card glass card-hover-lift shine-effect rounded-2xl p-8 sm:p-10">
+                      <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover/card:bg-primary/20 transition-all duration-300">
                         <Icon className="w-7 h-7 text-primary icon-hover" />
                       </div>
                       <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">{service.title}</h2>

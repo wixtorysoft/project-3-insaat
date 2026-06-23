@@ -5,7 +5,6 @@ import { CheckCircle2, Target, Eye } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useI18n } from '@/lib/i18n'
 import Link from 'next/link'
-import { IMAGES } from '@/data/images'
 
 export default function About() {
   const { t } = useI18n()
@@ -25,7 +24,7 @@ export default function About() {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-primary/5 rounded-3xl blur-2xl" />
               <img
-                src={IMAGES.aboutTeam}
+                src="/images/about-team.png"
                 alt="Wixtory Team"
                 className="relative rounded-2xl w-full object-cover shadow-2xl"
               />

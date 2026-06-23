@@ -1,5 +1,3 @@
-import { IMAGES } from './images'
-
 export const companyInfo = {
   name: 'Wixtory İnşaat',
   nameEn: 'Wixtory Construction',
@@ -64,7 +62,7 @@ export const projects: Project[] = [
     locationEn: 'Istanbul, Kadikoy',
     year: '2024',
     category: 'residential',
-    image: IMAGES.projectResidential,
+    image: '/images/project-residential.png',
     description: '42 katlı lüks rezidans projesi, 280 daire, panoramik boğaz manzarası.',
     descriptionEn: '42-story luxury residence project, 280 apartments, panoramic Bosphorus view.',
     area: '45.000 m²',
@@ -78,7 +76,7 @@ export const projects: Project[] = [
     duration: '2022 - 2024',
     slug: 'skyline-residence',
     progress: 78,
-    gallery: [IMAGES.projectResidential, IMAGES.projectInterior],
+    gallery: ['/images/project-residential.png', '/images/project-interior.png'],
   },
   {
     id: 2,
@@ -88,7 +86,7 @@ export const projects: Project[] = [
     locationEn: 'Istanbul, Atasehir',
     year: '2023',
     category: 'commercial',
-    image: IMAGES.projectCommercial,
+    image: '/images/project-commercial.png',
     description: 'A+ sınıfı ofis kulesi, akıllı bina teknolojileri ile donatılmış modern iş merkezi.',
     descriptionEn: 'A+ class office tower, modern business center equipped with smart building technologies.',
     area: '62.000 m²',
@@ -101,7 +99,7 @@ export const projects: Project[] = [
     clientEn: 'Marina Investment Holding',
     duration: '2020 - 2023',
     slug: 'marina-tower',
-    gallery: [IMAGES.projectCommercial],
+    gallery: ['/images/project-commercial.png'],
   },
   {
     id: 3,
@@ -111,7 +109,7 @@ export const projects: Project[] = [
     locationEn: 'Antalya, Konyaalti',
     year: '2024',
     category: 'residential',
-    image: IMAGES.projectInterior,
+    image: '/images/project-interior.png',
     description: 'Doğayla iç içe 48 villa, özel havuz ve peyzaj düzenlemesi.',
     descriptionEn: '48 villas surrounded by nature, private pools and landscaping.',
     area: '28.000 m²',
@@ -125,7 +123,7 @@ export const projects: Project[] = [
     duration: '2023 - 2024',
     slug: 'green-valley-villas',
     progress: 92,
-    gallery: [IMAGES.projectInterior, IMAGES.projectResidential],
+    gallery: ['/images/project-interior.png', '/images/project-residential.png'],
   },
   {
     id: 4,
@@ -135,7 +133,7 @@ export const projects: Project[] = [
     locationEn: 'Ankara, Kizilcahamam',
     year: '2022',
     category: 'infrastructure',
-    image: IMAGES.projectInfrastructure,
+    image: '/images/project-infrastructure.png',
     description: '480 metre uzunluğunda viyadük, deprem bölgesi özel tasarım.',
     descriptionEn: '480-meter viaduct, special design for earthquake zone.',
     area: '480 m',
@@ -148,7 +146,7 @@ export const projects: Project[] = [
     clientEn: 'General Directorate of Highways',
     duration: '2019 - 2022',
     slug: 'northern-highway-bridge',
-    gallery: [IMAGES.projectInfrastructure],
+    gallery: ['/images/project-infrastructure.png'],
   },
   {
     id: 5,
@@ -158,7 +156,7 @@ export const projects: Project[] = [
     locationEn: 'Izmir, Bornova',
     year: '2023',
     category: 'commercial',
-    image: IMAGES.projectCommercial,
+    image: '/images/project-commercial.png',
     description: 'Teknoloji geliştirme bölgesi, 5 bina, ortak kullanım alanları.',
     descriptionEn: 'Technology development zone, 5 buildings, shared spaces.',
     area: '75.000 m²',
@@ -171,7 +169,7 @@ export const projects: Project[] = [
     clientEn: 'Izmir Technology Development Inc.',
     duration: '2020 - 2023',
     slug: 'techpark-campus',
-    gallery: [IMAGES.projectCommercial],
+    gallery: ['/images/project-commercial.png'],
   },
   {
     id: 6,
@@ -181,7 +179,7 @@ export const projects: Project[] = [
     locationEn: 'Istanbul, Besiktas',
     year: '2024',
     category: 'residential',
-    image: IMAGES.projectResidential,
+    image: '/images/project-residential.png',
     description: 'Prestijli konumda lüks yaşam projesi, özel tasarım daireler.',
     descriptionEn: 'Luxury living project in a prestigious location, custom-designed apartments.',
     area: '35.000 m²',
@@ -194,7 +192,7 @@ export const projects: Project[] = [
     clientEn: 'Planned Project',
     duration: '2024 - 2026',
     slug: 'bosphorus-heights',
-    gallery: [IMAGES.projectResidential],
+    gallery: ['/images/project-residential.png'],
   },
   // ===== DEVAM EDEN PROJELER =====
   {
@@ -205,7 +203,7 @@ export const projects: Project[] = [
     locationEn: 'Istanbul, Bakirkoy',
     year: '2025',
     category: 'residential',
-    image: IMAGES.projectResidential,
+    image: '/images/project-residential.png',
     description: 'Deniz manzaralı 36 katlı rezidans, 220 daire, akıllı ev otomasyonu.',
     descriptionEn: '36-story sea-view residence, 220 apartments, smart home automation.',
     area: '52.000 m²',
@@ -219,7 +217,7 @@ export const projects: Project[] = [
     duration: '2024 - 2025',
     slug: 'azure-panorama',
     progress: 45,
-    gallery: [IMAGES.projectResidential, IMAGES.projectInterior],
+    gallery: ['/images/project-residential.png', '/images/project-interior.png'],
   },
   {
     id: 8,
@@ -229,7 +227,7 @@ export const projects: Project[] = [
     locationEn: 'Ankara, Cankaya',
     year: '2025',
     category: 'commercial',
-    image: IMAGES.projectCommercial,
+    image: '/images/project-commercial.png',
     description: 'Metro ulaşımına entegre karma kullanım merkezi, ofisler ve ticari alanlar.',
     descriptionEn: 'Metro-integrated mixed-use center, offices and commercial spaces.',
     area: '85.000 m²',
@@ -243,7 +241,7 @@ export const projects: Project[] = [
     duration: '2023 - 2025',
     slug: 'metro-business-hub',
     progress: 62,
-    gallery: [IMAGES.projectCommercial],
+    gallery: ['/images/project-commercial.png'],
   },
   {
     id: 9,
@@ -253,7 +251,7 @@ export const projects: Project[] = [
     locationEn: 'Sakarya, Adapazari',
     year: '2025',
     category: 'infrastructure',
-    image: IMAGES.projectInfrastructure,
+    image: '/images/project-infrastructure.png',
     description: '680 metre uzunluğunda otoyol köprüsü, deprem izolasyonlu taşıyıcı sistem.',
     descriptionEn: '680-meter highway bridge, earthquake-isolated structural system.',
     area: '680 m',
@@ -267,7 +265,7 @@ export const projects: Project[] = [
     duration: '2023 - 2025',
     slug: 'sakarya-koprusu',
     progress: 35,
-    gallery: [IMAGES.projectInfrastructure],
+    gallery: ['/images/project-infrastructure.png'],
   },
   {
     id: 10,
@@ -277,7 +275,7 @@ export const projects: Project[] = [
     locationEn: 'Mugla, Bodrum',
     year: '2026',
     category: 'residential',
-    image: IMAGES.projectInterior,
+    image: '/images/project-interior.png',
     description: "Bodrum'da butik tatil köyü, 120 villa, özel plaj ve marinaya erişim.",
     descriptionEn: 'Boutique holiday resort in Bodrum, 120 villas, private beach and marina access.',
     area: '95.000 m²',
@@ -291,7 +289,7 @@ export const projects: Project[] = [
     duration: '2025 - 2026',
     slug: 'ege-sunset-resort',
     progress: 18,
-    gallery: [IMAGES.projectInterior, IMAGES.projectResidential],
+    gallery: ['/images/project-interior.png', '/images/project-residential.png'],
   },
 ]
 
@@ -436,7 +434,7 @@ export const newsItems: NewsItem[] = [
     contentEn: 'An important milestone has been reached in the Azure Panorama project being built by Wixtory İnşaat in Istanbul Bakirkoy. The steel construction phase of the 36-story luxury residence project was completed on schedule and within budget. The overall project progress has reached 45%.\n\nThe project will include 220 apartments, indoor parking, swimming pool, and gym. The next phase will begin with facade cladding and mechanical installation work.',
     date: '2025-02-15',
     category: 'project',
-    image: IMAGES.projectResidential,
+    image: '/images/project-residential.png',
     slug: 'azure-panorama-celik-konstruksiyon-tamamlandi',
   },
   {
@@ -449,7 +447,7 @@ export const newsItems: NewsItem[] = [
     contentEn: 'Wixtory İnşaat has earned the ISO 45001:2018 certification, taking its commitment to occupational health and safety one step further. This certification is an international endorsement that we maintain the highest OHS standards across all our construction sites.\n\nAll our departments played an active role in the certification process, and audits were successfully completed after a 2-year preparation period. The safety of our employees is always our priority.',
     date: '2025-01-20',
     category: 'corporate',
-    image: IMAGES.projectCommercial,
+    image: '/images/project-commercial.png',
     slug: 'wixtory-iso-45001-sertifikasi-aldi',
   },
   {
@@ -462,7 +460,7 @@ export const newsItems: NewsItem[] = [
     contentEn: 'According to the latest report from the Turkish Construction Industry Association, significant growth is expected in the construction sector in 2025. Infrastructure investments and increasing housing demand are among the main factors driving the sector.\n\nAs Wixtory İnşaat, we are evaluating these positive developments in the sector, planning new projects and continuing our investments. The growing interest in sustainable construction practices is leading us to increase the number of our green building certified projects.',
     date: '2025-02-01',
     category: 'sector',
-    image: IMAGES.projectInfrastructure,
+    image: '/images/project-infrastructure.png',
     slug: 'turkiye-insaat-sektoru-2025-buyume-beklentisi',
   },
   {
@@ -475,7 +473,7 @@ export const newsItems: NewsItem[] = [
     contentEn: 'The Metro Business Hub project under construction in Ankara Cankaya has reached 62% completion. The rough construction phase has been successfully completed in the project consisting of 3 office towers and a commercial podium.\n\nThe project stands out with its direct integration with the metro line. Designed with a green building certification target, Metro Business Hub will be the capital\'s most comprehensive business center when completed. Delivery is planned for the end of 2025.',
     date: '2025-02-10',
     category: 'project',
-    image: IMAGES.projectCommercial,
+    image: '/images/project-commercial.png',
     slug: 'metro-business-hub-yuzde-62-tamamlandi',
   },
   {
@@ -488,7 +486,7 @@ export const newsItems: NewsItem[] = [
     contentEn: 'Wixtory İnşaat has been nominated for the "Employer of the Year" award for its human resources practices and employee satisfaction policies. During the nomination process, our employee satisfaction surveys, occupational health and safety practices, and career development programs were evaluated.\n\nContinuing to grow with over 10,000 employees, maintaining our people-focused approach is our greatest source of pride.',
     date: '2025-01-28',
     category: 'corporate',
-    image: IMAGES.aboutTeam,
+    image: '/images/about-team.png',
     slug: 'wixtory-yilin-en-iyi-isveren-odulune-aday',
   },
 ]
@@ -500,132 +498,4 @@ export function getNewsByCategory(category: NewsCategory | 'all'): NewsItem[] {
 
 export function getNewsBySlug(slug: string): NewsItem | undefined {
   return newsItems.find(n => n.slug === slug)
-}
-
-export type AnnouncementCategory = 'general' | 'tender' | 'event' | 'career'
-
-export interface AnnouncementItem {
-  id: number; title: string; titleEn: string; summary: string; summaryEn: string;
-  content: string; contentEn: string; date: string; category: AnnouncementCategory; image: string; slug: string;
-}
-
-export const announcementItems: AnnouncementItem[] = [
-  { id: 1, title: '2025 Yılı İhale Takvimi Açıklandı', titleEn: '2025 Procurement Calendar Announced', summary: 'Wixtory İnşaat 2025 yılı ihale takvimini yayımladı. Tüm tedarikçilerimize duyurulur.', summaryEn: 'Wixtory İnşaat has published its 2025 procurement calendar. All suppliers are hereby notified.', content: 'Wixtory İnşaat, 2025 yılı boyunca gerçekleştireceği ihalelerin takvimini resmi olarak yayımlamıştır. Takvim; malzeme tedariki, alt yüklenıcı hizmetleri ve danışmanlık ihalelerini kapsamaktadır.\n\nİhalelere katılım şartları ve detaylı bilgi için ihaleler@wixtory.com adresine başvurabilirsiniz.', contentEn: 'Wixtory İnşaat has officially published the calendar for its 2025 procurements. The calendar covers material supply, subcontractor services, and consultancy tenders.\n\nFor participation conditions and detailed information, you can apply to ihaleler@wixtory.com.', date: '2025-03-01', category: 'tender', image: IMAGES.projectCommercial, slug: '2025-ihale-takvimi-aciklandi' },
-  { id: 2, title: 'Wixtory İnşaat Kariyer Günleri Başlıyor', titleEn: 'Wixtory İnşaat Career Days Are Starting', summary: 'Üniversite mezunu mühendis ve mimar adayları için kariyer günleri düzenlenecektir.', summaryEn: 'Career days will be organized for university graduate engineer and architect candidates.', content: 'Wixtory İnşaat, üniversitelerle iş birliği içinde genç mühendis ve mimar adaylarına yönelik kariyer günleri düzenlemektedir. İstanbul, Ankara ve İzmir\'de gerçekleşecek etkinliklerde, şirketimizde staj ve iş imkânları hakkında bilgi verilecektir.\n\nBaşvurular kariyer@wixtory.com adresinden yapılabilmektedir.', contentEn: 'Wixtory İnşaat organizes career days in collaboration with universities for young engineer and architect candidates. At the events to be held in Istanbul, Ankara, and Izmir, information about internship and job opportunities will be provided.\n\nApplications can be made via kariyer@wixtory.com.', date: '2025-02-20', category: 'career', image: IMAGES.aboutTeam, slug: 'wixtory-kariyer-gunleri-basliyor' },
-  { id: 3, title: 'Yeni Ofis Açılış Töreni — 15 Mart 2025', titleEn: 'New Office Opening Ceremony — March 15, 2025', summary: 'Ankara Çankaya\'daki yeni bölge müdürlüğümüzün açılış törenine davetlisiniz.', summaryEn: 'You are invited to the opening ceremony of our new regional office in Ankara Cankaya.', content: 'Wixtory İnşaat, Ankara Çankaya\'da hizmete girecek yeni bölge müdürlüğünün açılış törenini 15 Mart 2025 Cumartesi günü gerçekleştirecektir.\n\nTörene tüm iş ortaklarımız, tedarikçilerimiz ve değerli konuklarımız davetlidir.', contentEn: 'Wixtory İnşaat will hold the opening ceremony of its new regional office in Ankara Cankaya on Saturday, March 15, 2025.\n\nAll our business partners, suppliers, and valued guests are invited to the ceremony.', date: '2025-03-15', category: 'event', image: IMAGES.projectCommercial, slug: 'yeni-ofis-acilis-toreni-15-mart' },
-  { id: 4, title: 'İş Sağlığı ve Güvenliği Haftası Etkinlikleri', titleEn: 'Occupational Health and Safety Week Events', summary: '4-10 Mayıs İSG Haftası kapsamında tüm şantiyelerimizde bilinçlendirme etkinlikleri düzenlenecektir.', summaryEn: 'Awareness events will be organized at all our construction sites during OHS Week, May 4-10.', content: 'Wixtory İnşaat, 4-10 Mayıs İş Sağlığı ve Güvenliği Haftası kapsamında tüm şantiyelerinde bilinçlendirme etkinlikleri, eğitim seminerleri ve ilk yardım uygulamaları düzenlemektedir.\n\nİSG konusundaki taahhüdümüz, ISO 45001 sertifikamızla belgelenmiştir.', contentEn: 'Wixtory İnşaat organizes awareness events, training seminars, and first aid practices at all its construction sites during OHS Week, May 4-10.\n\nOur commitment to OHS is documented with our ISO 45001 certification.', date: '2025-05-04', category: 'event', image: IMAGES.projectInfrastructure, slug: 'isg-haftasi-etkinlikleri' },
-  { id: 5, title: 'Kıdemli Proje Yöneticisi Aranıyor', titleEn: 'Senior Project Manager Wanted', summary: 'En az 10 yıl deneyimli kıdemli proje yöneticisi pozisyonumuz için başvurular başlamıştır.', summaryEn: 'Applications have started for our senior project manager position.', content: 'Wixtory İnşaat, büyük ölçekli inşaat projelerinde görev alacak kıdemli proje yöneticisi aramaktadır. En az 10 yıl deneyim, PMP sertifikası ve MS Project/Primavera bilgisi gereklidir.\n\nAdaylar kariyer@wixtory.com adresine başvurabilir.', contentEn: 'Wixtory İnşaat is seeking a senior project manager. At least 10 years of experience, PMP certification, and MS Project/Primavera knowledge are required.\n\nCandidates can apply to kariyer@wixtory.com.', date: '2025-02-10', category: 'career', image: IMAGES.aboutTeam, slug: 'kidemli-proje-yoneticisi-araniyor' },
-  { id: 6, title: 'Yeşil Bina Sertifikasyon Süreci Hakkında Bilgilendirme', titleEn: 'Green Building Certification Process Information', summary: 'LEED ve BREEAM sertifikasyon süreçlerimiz hakkında güncel bilgilendirme.', summaryEn: 'Current information about our LEED and BREEAM certification processes.', content: 'Wixtory İnşaat, sürdürülebilirlik hedefleri doğrultusunda tüm yeni projelerinde LEED ve BREEAM sertifikasyon süreçlerini yürütmektedir. 2025 yılı itibarıyla 3 projemiz LEED Gold, 2 projemiz BREEAM Very Good seviyesinde sertifikalandırılmıştır.', contentEn: 'Wixtory İnşaat carries out LEED and BREEAM certification processes in all its new projects. As of 2025, 3 projects have been LEED Gold certified and 2 projects BREEAM Very Good certified.', date: '2025-01-15', category: 'general', image: IMAGES.projectInterior, slug: 'yesil-bina-sertifikasyonu-bilgilendirme' },
-]
-
-export function getAnnouncementsByCategory(category: AnnouncementCategory | 'all'): AnnouncementItem[] {
-  return category === 'all' ? announcementItems : announcementItems.filter(a => a.category === category)
-}
-export function getAnnouncementBySlug(slug: string): AnnouncementItem | undefined {
-  return announcementItems.find(a => a.slug === slug)
-}
-
-export type JobType = 'fulltime' | 'parttime' | 'contract'
-export type JobDepartment = 'engineering' | 'architecture' | 'management' | 'safety' | 'finance' | 'it'
-
-export interface JobListing {
-  id: number; title: string; titleEn: string; department: JobDepartment; departmentLabel: string; departmentLabelEn: string;
-  location: string; locationEn: string; type: JobType; typeLabel: string; typeLabelEn: string;
-  experience: string; experienceEn: string; salary: string; salaryEn: string;
-  description: string; descriptionEn: string; requirements: string[]; requirementsEn: string[];
-  benefits: string[]; benefitsEn: string[]; date: string; slug: string; isActive: boolean;
-}
-
-export const jobListings: JobListing[] = [
-  {
-    id: 1, title: 'Kıdemli Proje Yöneticisi', titleEn: 'Senior Project Manager',
-    department: 'management', departmentLabel: 'Proje Yönetimi', departmentLabelEn: 'Project Management',
-    location: 'İstanbul, Levent', locationEn: 'Istanbul, Levent',
-    type: 'fulltime', typeLabel: 'Tam Zamanlı', typeLabelEn: 'Full-time',
-    experience: '10+ yıl', experienceEn: '10+ years', salary: '80.000 - 120.000 TL', salaryEn: '80,000 - 120,000 TRY',
-    description: 'Büyük ölçekli inşaat projelerinin planlanması, koordinasyonu ve takibinden sorumlu olacaksınız. En az 10 yıl deneyim, PMP sertifikası ve MS Project/Primavera bilgisi gereklidir. Metro Business Hub ve Azure Panorama gibi projelerimizde görev alacaksınız.',
-    descriptionEn: 'You will be responsible for planning, coordination, and tracking of large-scale construction projects. At least 10 years of experience, PMP certification, and MS Project/Primavera knowledge are required. You will work on projects such as Metro Business Hub and Azure Panorama.',
-    requirements: ['İnşaat mühendisliği veya ilgili bölüm lisans mezunu', 'En az 10 yıl proje yönetimi deneyimi', 'PMP sertifikası', 'MS Project ve Primavera bilgisi', 'İleri düzey İngilizce', 'B sınıfı iş güvenliği belgesi'],
-    requirementsEn: ['Bachelor\'s degree in Civil Engineering or related field', 'At least 10 years of project management experience', 'PMP certification', 'MS Project and Primavera knowledge', 'Advanced English', 'Class B OHS certificate'],
-    benefits: ['Özel sağlık sigortası', 'Yemek kartı', 'Servis', 'Performans bonusu', 'Eğitim desteği', 'Yıl sonu ikramiyesi'],
-    benefitsEn: ['Private health insurance', 'Meal card', 'Company shuttle', 'Performance bonus', 'Training support', 'Year-end bonus'],
-    date: '2025-02-10', slug: 'kidemli-proje-yoneticisi', isActive: true,
-  },
-  {
-    id: 2, title: 'İnşaat Mühendisi', titleEn: 'Civil Engineer',
-    department: 'engineering', departmentLabel: 'Mühendislik', departmentLabelEn: 'Engineering',
-    location: 'Ankara, Çankaya', locationEn: 'Ankara, Cankaya',
-    type: 'fulltime', typeLabel: 'Tam Zamanlı', typeLabelEn: 'Full-time',
-    experience: '5+ yıl', experienceEn: '5+ years', salary: '55.000 - 80.000 TL', salaryEn: '55,000 - 80,000 TRY',
-    description: 'Şantiye şefliği pozisyonunda çalışacak, inşaat sahasındaki tüm üretim faaliyetlerinden sorumlu olacak inşaat mühendisi aranmaktadır. Metro Business Hub projesinde görev alacaksınız.',
-    descriptionEn: 'We are looking for a civil engineer to work as a site supervisor, responsible for all production activities on the construction site. You will work on the Metro Business Hub project.',
-    requirements: ['İnşaat mühendisliği lisans mezunu', 'En az 5 yıl şantiye deneyimi', 'AutoCAD ve BIM bilgisi', 'İSG sertifikası', 'Orta düzey İngilizce', 'Ehliyet (B sınıfı)'],
-    requirementsEn: ['Bachelor\'s degree in Civil Engineering', 'At least 5 years of site experience', 'AutoCAD and BIM knowledge', 'OHS certificate', 'Intermediate English', 'Driver\'s license (Class B)'],
-    benefits: ['Özel sağlık sigortası', 'Yemek kartı', 'Servis', 'Eğitim desteği'],
-    benefitsEn: ['Private health insurance', 'Meal card', 'Company shuttle', 'Training support'],
-    date: '2025-02-15', slug: 'insaat-muhendisi', isActive: true,
-  },
-  {
-    id: 3, title: 'Mimar', titleEn: 'Architect',
-    department: 'architecture', departmentLabel: 'Mimarlık', departmentLabelEn: 'Architecture',
-    location: 'İstanbul, Kadıköy', locationEn: 'Istanbul, Kadikoy',
-    type: 'fulltime', typeLabel: 'Tam Zamanlı', typeLabelEn: 'Full-time',
-    experience: '3+ yıl', experienceEn: '3+ years', salary: '50.000 - 70.000 TL', salaryEn: '50,000 - 70,000 TRY',
-    description: 'Tasarım ve uygulama süreçlerinde görev alacak mimar aranmaktadır. Revit, AutoCAD ve SketchUp programlarına hakim, modern mimari trendleri takip eden adaylar tercih edilecektir.',
-    descriptionEn: 'We are looking for an architect to take part in design and implementation processes. Candidates proficient in Revit, AutoCAD, and SketchUp who follow modern architectural trends will be preferred.',
-    requirements: ['Mimarlık lisans mezunu', 'En az 3 yıl deneyim', 'Revit ve AutoCAD bilgisi', 'SketchUp ve Lumion bilgisi', 'Portfolyo sunumu', 'İleri düzey İngilizce'],
-    requirementsEn: ['Bachelor\'s degree in Architecture', 'At least 3 years of experience', 'Revit and AutoCAD knowledge', 'SketchUp and Lumion knowledge', 'Portfolio presentation', 'Advanced English'],
-    benefits: ['Özel sağlık sigortası', 'Yemek kartı', 'Esnek çalışma saatleri', 'Eğitim desteği'],
-    benefitsEn: ['Private health insurance', 'Meal card', 'Flexible working hours', 'Training support'],
-    date: '2025-02-20', slug: 'mimar', isActive: true,
-  },
-  {
-    id: 4, title: 'İş Güvenliği Uzmanı', titleEn: 'Occupational Safety Specialist',
-    department: 'safety', departmentLabel: 'İSG', departmentLabelEn: 'OHS',
-    location: 'İstanbul, Bakırköy', locationEn: 'Istanbul, Bakirkoy',
-    type: 'fulltime', typeLabel: 'Tam Zamanlı', typeLabelEn: 'Full-time',
-    experience: '5+ yıl', experienceEn: '5+ years', salary: '50.000 - 70.000 TL', salaryEn: '50,000 - 70,000 TRY',
-    description: 'Tüm şantiyelerimizde iş sağlığı ve güvenliği süreçlerini yönetecek, denetimler yapacak ve İSG eğitimlerini düzenleyecek uzman aranmaktadır. ISO 45001 sistemine hakim olmalıdır.',
-    descriptionEn: 'We are looking for a specialist to manage OHS processes, conduct audits, and organize OHS training at all our construction sites. Must be proficient in ISO 45001 system.',
-    requirements: ['İSG uzmanlığı sertifikası (A sınıfı)', 'En az 5 yıl şantiye İSG deneyimi', 'ISO 45001 bilgisi', 'Risk analizi yapabilme', 'İleri düzey İngilizce', 'Ehliyet (B sınıfı)'],
-    requirementsEn: ['OHS specialist certificate (Class A)', 'At least 5 years of site OHS experience', 'ISO 45001 knowledge', 'Risk analysis capability', 'Advanced English', 'Driver\'s license (Class B)'],
-    benefits: ['Özel sağlık sigortası', 'Yemek kartı', 'Servis', 'Performans bonusu'],
-    benefitsEn: ['Private health insurance', 'Meal card', 'Company shuttle', 'Performance bonus'],
-    date: '2025-01-25', slug: 'is-guvenligi-uzmani', isActive: true,
-  },
-  {
-    id: 5, title: 'Muhasebe Uzmanı', titleEn: 'Accounting Specialist',
-    department: 'finance', departmentLabel: 'Finans', departmentLabelEn: 'Finance',
-    location: 'İstanbul, Levent', locationEn: 'Istanbul, Levent',
-    type: 'fulltime', typeLabel: 'Tam Zamanlı', typeLabelEn: 'Full-time',
-    experience: '3+ yıl', experienceEn: '3+ years', salary: '45.000 - 65.000 TL', salaryEn: '45,000 - 65,000 TRY',
-    description: 'Şirket muhasebe süreçlerinin yürütülmesi, mali tabloların hazırlanması, vergi bildirimlerinin yapılması ve bütçe takibinden sorumlu muhasebe uzmanı aranmaktadır.',
-    descriptionEn: 'We are looking for an accounting specialist responsible for managing company accounting processes, preparing financial statements, filing tax returns, and budget tracking.',
-    requirements: ['İlgili bölüm lisans mezunu', 'En az 3 yıl muhasebe deneyimi', 'SAP veya ERP bilgisi', 'MS Excel ileri düzey', 'Vergi mevzuatı bilgisi', 'İngilizce tercih sebebidir'],
-    requirementsEn: ['Bachelor\'s degree in related field', 'At least 3 years of accounting experience', 'SAP or ERP knowledge', 'Advanced MS Excel', 'Tax legislation knowledge', 'English is preferred'],
-    benefits: ['Özel sağlık sigortası', 'Yemek kartı', 'Esnek çalışma saatleri'],
-    benefitsEn: ['Private health insurance', 'Meal card', 'Flexible working hours'],
-    date: '2025-02-05', slug: 'muhasebe-uzmani', isActive: true,
-  },
-  {
-    id: 6, title: 'BIM Mühendisi', titleEn: 'BIM Engineer',
-    department: 'it', departmentLabel: 'Bilişim', departmentLabelEn: 'IT',
-    location: 'İstanbul, Levent', locationEn: 'Istanbul, Levent',
-    type: 'contract', typeLabel: 'Sözleşmeli', typeLabelEn: 'Contract',
-    experience: '2+ yıl', experienceEn: '2+ years', salary: '55.000 - 75.000 TL', salaryEn: '55,000 - 75,000 TRY',
-    description: 'BIM modelleme süreçlerinin yönetilmesi, 3D model oluşturulması, çakışma tespiti ve koordinasyon toplantılarının yürütülmesinden sorumlu BIM mühendisi aranmaktadır.',
-    descriptionEn: 'We are looking for a BIM engineer responsible for managing BIM modeling processes, creating 3D models, clash detection, and conducting coordination meetings.',
-    requirements: ['İnşaat mühendisliği veya mimarlık mezunu', 'En az 2 yıl BIM deneyimi', 'Revit ve Navisworks bilgisi', 'IFC formatı bilgisi', 'Orta düzey İngilizce'],
-    requirementsEn: ['Bachelor\'s in Civil Engineering or Architecture', 'At least 2 years of BIM experience', 'Revit and Navisworks knowledge', 'IFC format knowledge', 'Intermediate English'],
-    benefits: ['Özel sağlık sigortası', 'Yemek kartı', 'Eğitim desteği'],
-    benefitsEn: ['Private health insurance', 'Meal card', 'Training support'],
-    date: '2025-02-18', slug: 'bim-muhendisi', isActive: true,
-  },
-]
-
-export function getActiveJobs(): JobListing[] {
-  return jobListings.filter(j => j.isActive)
-}
-export function getJobBySlug(slug: string): JobListing | undefined {
-  return jobListings.find(j => j.slug === slug)
 }

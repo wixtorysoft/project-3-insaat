@@ -5,8 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Newspaper, Building2, Briefcase, Globe, Calendar, ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
-import { getNewsByCategory, newsItems, type NewsCategory } from '@/data/content'
-import { IMAGES } from '@/data/images'
+import { getNewsByCategory, type NewsCategory } from '@/data/content'
 import { Button } from '@/components/ui/button'
 
 const categoryConfig: { key: NewsCategory | 'all'; icon: React.ElementType; color: string }[] = [
@@ -33,43 +32,29 @@ export default function NewsPage() {
     <div className="min-h-screen pt-24 pb-16">
       {/* Hero */}
       <section className="relative py-16 sm:py-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={IMAGES.bgProjects} alt="Haberler" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 pointer-events-none">
+  <img src="/images/bg-projects.png" alt="Haberler" className="w-full h-full object-cover" />
+  <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
+  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+</div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <Newspaper className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">{t.corporate.news.badge}</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-primary/50" />
-              <span className="text-sm font-medium text-primary">{newsItems.length} {locale === 'en' ? 'articles' : 'yazı'}</span>
             </div>
-
-            {/* Title */}
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
               <span className="text-foreground">{t.corporate.news.title1} </span>
               <span className="gradient-text">{t.corporate.news.title2}</span>
             </h1>
-
-            {/* Description */}
             <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg">
               {t.corporate.news.description}
             </p>
-
-            {/* Divider accent */}
-            <div className="flex items-center justify-center gap-3 mt-8">
-              <div className="h-px w-12 bg-primary/30" />
-              <div className="w-2 h-2 rounded-full bg-primary" />
-              <div className="h-px w-12 bg-primary/30" />
-            </div>
           </motion.div>
         </div>
       </section>
@@ -81,7 +66,6 @@ export default function NewsPage() {
             {categoryConfig.map((cat) => {
               const Icon = cat.icon
               const isActive = activeCategory === cat.key
-              const count = cat.key === 'all' ? newsItems.length : newsItems.filter(n => n.category === cat.key).length
               return (
                 <Button
                   key={cat.key}
@@ -96,9 +80,6 @@ export default function NewsPage() {
                 >
                   <Icon className="w-4 h-4 mr-2" />
                   {categoryLabels[cat.key]}
-                  <span className={`ml-2 text-xs px-1.5 py-0.5 rounded-full ${isActive ? 'bg-primary-foreground/20' : 'bg-muted'}`}>
-                    {count}
-                  </span>
                 </Button>
               )
             })}
@@ -170,14 +151,6 @@ export default function NewsPage() {
               })}
             </AnimatePresence>
           </div>
-
-          {/* Empty state */}
-          {filteredNews.length === 0 && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-20">
-              <Newspaper className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
-              <p className="text-muted-foreground">{locale === 'en' ? 'No news found in this category.' : 'Bu kategoride haber bulunamadı.'}</p>
-            </motion.div>
-          )}
         </div>
       </section>
     </div>
