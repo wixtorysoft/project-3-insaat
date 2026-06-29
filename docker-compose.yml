@@ -1,6 +1,9 @@
 services:
   nextjs:
     build: .
+    container_name: project-3_fe
+    network_mode: "host"
+    restart: always
     ports:
       - "5112:5112"
     environment:
