@@ -1,6 +1,7 @@
 services:
   nextjs:
     build: .
+    image: project-3_fe
     container_name: project-3_fe
     network_mode: "host"
     restart: always
