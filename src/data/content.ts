@@ -1,3 +1,5 @@
+import { IMAGES } from './images'
+
 export const companyInfo = {
   name: 'Wixtory İnşaat',
   nameEn: 'Wixtory Construction',
@@ -5,7 +7,11 @@ export const companyInfo = {
   email: 'wixtorysoft@gmail.com',
   phone: '+905448358401',
   phoneDisplay: '+90 544 835 84 01',
-  address: 'Levent Mah. Büyükdere Cad. No:123 Beşiktaş/İstanbul',
+  address: 'Podium AVM, Mustafa Kemal Mah. Dumlupınar Bulvarı No:268 Çankaya/Ankara',
+  addressEn: 'Podium Mall, Mustafa Kemal Neighborhood, Dumlupinar Blvd No:268, Cankaya/Ankara',
+  // Podium AVM koordinatları (Ankara)
+  lat: 39.9032,
+  lng: 32.8079,
   workingHours: {
     tr: 'Pzt-Cum: 08:00-18:00',
     en: 'Mon-Fri: 08:00-18:00',
@@ -40,6 +46,8 @@ export interface Project {
   descriptionEn: string
   area: string
   status: 'completed' | 'ongoing' | 'planned'
+  address?: string
+  addressEn?: string
   // Detailed page fields
   fullDescription?: string
   fullDescriptionEn?: string
@@ -60,6 +68,8 @@ export const projects: Project[] = [
     titleEn: 'Skyline Residence',
     location: 'İstanbul, Kadıköy',
     locationEn: 'Istanbul, Kadikoy',
+    address: 'Caferağa Mah. Moda Cad. No:142 Kadıköy/İstanbul',
+    addressEn: 'Caferaga Mah. Moda Cad. No:142 Kadikoy/Istanbul',
     year: '2024',
     category: 'residential',
     image: '/images/project-residential.png',
@@ -84,6 +94,8 @@ export const projects: Project[] = [
     titleEn: 'Marina Tower',
     location: 'İstanbul, Ataşehir',
     locationEn: 'Istanbul, Atasehir',
+    address: 'Kozyatağı Mah. Büyükdere Cad. No:255 Ataşehir/İstanbul',
+    addressEn: 'Kozyatagi Mah. Buyukdere Cad. No:255 Atasehir/Istanbul',
     year: '2023',
     category: 'commercial',
     image: '/images/project-commercial.png',
@@ -107,6 +119,8 @@ export const projects: Project[] = [
     titleEn: 'Green Valley Villas',
     location: 'Antalya, Konyaaltı',
     locationEn: 'Antalya, Konyaalti',
+    address: 'Liman Mah. Konyaaltı Sahil Bulvarı No:78 Antalya',
+    addressEn: 'Liman Mah. Konyaalti Sahil Bulvari No:78 Antalya',
     year: '2024',
     category: 'residential',
     image: '/images/project-interior.png',
@@ -131,6 +145,8 @@ export const projects: Project[] = [
     titleEn: 'Northern Highway Bridge',
     location: 'Ankara, Kızılcahamam',
     locationEn: 'Ankara, Kizilcahamam',
+    address: 'Kızılcahamam-Çamlıdere Yolu Km:24 Ankara',
+    addressEn: 'Kizilcahamam-Camlidere Road Km:24 Ankara',
     year: '2022',
     category: 'infrastructure',
     image: '/images/project-infrastructure.png',
@@ -154,6 +170,8 @@ export const projects: Project[] = [
     titleEn: 'TechPark Campus',
     location: 'İzmir, Bornova',
     locationEn: 'Izmir, Bornova',
+    address: 'Kazımdirik Mah. Üniversite Cad. No:45 İzmir',
+    addressEn: 'Kazidirik Mah. Universite Cad. No:45 Izmir',
     year: '2023',
     category: 'commercial',
     image: '/images/project-commercial.png',
@@ -177,6 +195,8 @@ export const projects: Project[] = [
     titleEn: 'Bosphorus Heights',
     location: 'İstanbul, Beşiktaş',
     locationEn: 'Istanbul, Besiktas',
+    address: 'Sinanpaşa Mah. Çırağan Cad. No:88 Beşiktaş/İstanbul',
+    addressEn: 'Sinanpasa Mah. Ciragan Cad. No:88 Besiktas/Istanbul',
     year: '2024',
     category: 'residential',
     image: '/images/project-residential.png',
@@ -201,6 +221,8 @@ export const projects: Project[] = [
     titleEn: 'Azure Panorama',
     location: 'İstanbul, Bakırköy',
     locationEn: 'Istanbul, Bakirkoy',
+    address: 'Zuhuratbabası Mah. Sahil Yolu Cad. No:12 Bakırköy/İstanbul',
+    addressEn: 'Zuhuratbaba Mah. Sahil Yolu Cad. No:12 Bakirkoy/Istanbul',
     year: '2025',
     category: 'residential',
     image: '/images/project-residential.png',
@@ -225,6 +247,8 @@ export const projects: Project[] = [
     titleEn: 'Metro Business Hub',
     location: 'Ankara, Çankaya',
     locationEn: 'Ankara, Cankaya',
+    address: 'Mustafa Kemal Mah. Dumlupınar Bulvarı No:288 Çankaya/Ankara',
+    addressEn: 'Mustafa Kemal Mah. Dumlupinar Bulvari No:288 Cankaya/Ankara',
     year: '2025',
     category: 'commercial',
     image: '/images/project-commercial.png',
@@ -249,6 +273,8 @@ export const projects: Project[] = [
     titleEn: 'Sakarya Bridge',
     location: 'Sakarya, Adapazarı',
     locationEn: 'Sakarya, Adapazari',
+    address: 'Kuzey Marmara Otoyolu Km:142 Sakarya',
+    addressEn: 'Northern Marmara Highway Km:142 Sakarya',
     year: '2025',
     category: 'infrastructure',
     image: '/images/project-infrastructure.png',
@@ -273,6 +299,8 @@ export const projects: Project[] = [
     titleEn: 'Ege Sunset Resort',
     location: 'Muğla, Bodrum',
     locationEn: 'Mugla, Bodrum',
+    address: 'Türkkuyusu Mah. Cevat Şakir Cad. No:201 Bodrum/Muğla',
+    addressEn: 'Turkkuyusu Mah. Cevat Sakir Cad. No:201 Bodrum/Mugla',
     year: '2026',
     category: 'residential',
     image: '/images/project-interior.png',
@@ -499,3 +527,590 @@ export function getNewsByCategory(category: NewsCategory | 'all'): NewsItem[] {
 export function getNewsBySlug(slug: string): NewsItem | undefined {
   return newsItems.find(n => n.slug === slug)
 }
+
+// ─── Duyurular (Announcements) ──────────────────────────
+export type AnnouncementCategory = 'general' | 'tender' | 'event' | 'career'
+
+export interface AnnouncementItem {
+  id: number
+  title: string
+  titleEn: string
+  summary: string
+  summaryEn: string
+  content: string
+  contentEn: string
+  date: string
+  category: AnnouncementCategory
+  image: string
+  slug: string
+}
+
+export const announcementItems: AnnouncementItem[] = [
+  {
+    id: 1,
+    title: '2025 Yılı İhale Takvimi Açıklandı',
+    titleEn: '2025 Procurement Calendar Announced',
+    summary: 'Wixtory İnşaat 2025 yılı ihale takvimini yayımladı. Tüm tedarikçilerimize duyurulur.',
+    summaryEn: 'Wixtory İnşaat has published its 2025 procurement calendar. All suppliers are hereby notified.',
+    content: 'Wixtory İnşaat, 2025 yılı boyunca gerçekleştireceği ihalelerin takvimini resmi olarak yayımlamıştır. Takvim; malzeme tedariki, alt yüklenıcı hizmetleri ve danışmanlık ihalelerini kapsamaktadır.\n\nİhalelere katılım şartları ve detaylı bilgi için ihaleler@wixtory.com adresine başvurabilirsiniz.',
+    contentEn: 'Wixtory İnşaat has officially published the calendar for its 2025 procurements. The calendar covers material supply, subcontractor services, and consultancy tenders.\n\nFor participation conditions and detailed information, you can apply to ihaleler@wixtory.com.',
+    date: '2025-03-01',
+    category: 'tender',
+    image: IMAGES.projectCommercial,
+    slug: '2025-ihale-takvimi-aciklandi',
+  },
+  {
+    id: 2,
+    title: 'Wixtory İnşaat Kariyer Günleri Başlıyor',
+    titleEn: 'Wixtory İnşaat Career Days Are Starting',
+    summary: 'Üniversite mezunu mühendis ve mimar adayları için kariyer günleri düzenlenecektir.',
+    summaryEn: 'Career days will be organized for university graduate engineer and architect candidates.',
+    content: 'Wixtory İnşaat, üniversitelerle iş birliği içinde genç mühendis ve mimar adaylarına yönelik kariyer günleri düzenlemektedir. İstanbul, Ankara ve İzmir\'de gerçekleşecek etkinliklerde, şirketimizde staj ve iş imkânları hakkında bilgi verilecektir.\n\nBaşvurular kariyer@wixtory.com adresinden yapılabilmektedir.',
+    contentEn: 'Wixtory İnşaat organizes career days in collaboration with universities for young engineer and architect candidates. At the events to be held in Istanbul, Ankara, and Izmir, information about internship and job opportunities will be provided.\n\nApplications can be made via kariyer@wixtory.com.',
+    date: '2025-02-20',
+    category: 'career',
+    image: IMAGES.aboutTeam,
+    slug: 'wixtory-kariyer-gunleri-basliyor',
+  },
+  {
+    id: 3,
+    title: 'Yeni Ofis Açılış Töreni — 15 Mart 2025',
+    titleEn: 'New Office Opening Ceremony — March 15, 2025',
+    summary: 'Ankara Çankaya\'daki yeni bölge müdürlüğümüzün açılış törenine davetlisiniz.',
+    summaryEn: 'You are invited to the opening ceremony of our new regional office in Ankara Cankaya.',
+    content: 'Wixtory İnşaat, Ankara Çankaya\'da hizmete girecek yeni bölge müdürlüğünün açılış törenini 15 Mart 2025 Cumartesi günü gerçekleştirecektir.\n\nTörene tüm iş ortaklarımız, tedarikçilerimiz ve değerli konuklarımız davetlidir.',
+    contentEn: 'Wixtory İnşaat will hold the opening ceremony of its new regional office in Ankara Cankaya on Saturday, March 15, 2025.\n\nAll our business partners, suppliers, and valued guests are invited to the ceremony.',
+    date: '2025-03-15',
+    category: 'event',
+    image: IMAGES.projectCommercial,
+    slug: 'yeni-ofis-acilis-toreni-15-mart',
+  },
+  {
+    id: 4,
+    title: 'İş Sağlığı ve Güvenliği Haftası Etkinlikleri',
+    titleEn: 'Occupational Health and Safety Week Events',
+    summary: '4-10 Mayıs İSG Haftası kapsamında tüm şantiyelerimizde bilinçlendirme etkinlikleri düzenlenecektir.',
+    summaryEn: 'Awareness events will be organized at all our construction sites during OHS Week, May 4-10.',
+    content: 'Wixtory İnşaat, 4-10 Mayıs İş Sağlığı ve Güvenliği Haftası kapsamında tüm şantiyelerinde bilinçlendirme etkinlikleri, eğitim seminerleri ve ilk yardım uygulamaları düzenlemektedir.\n\nİSG konusundaki taahhüdümüz, ISO 45001 sertifikamızla belgelenmiştir.',
+    contentEn: 'Wixtory İnşaat organizes awareness events, training seminars, and first aid practices at all its construction sites during OHS Week, May 4-10.\n\nOur commitment to OHS is documented with our ISO 45001 certification.',
+    date: '2025-05-04',
+    category: 'event',
+    image: IMAGES.projectInfrastructure,
+    slug: 'isg-haftasi-etkinlikleri',
+  },
+  {
+    id: 5,
+    title: 'Kıdemli Proje Yöneticisi Aranıyor',
+    titleEn: 'Senior Project Manager Wanted',
+    summary: 'En az 10 yıl deneyimli kıdemli proje yöneticisi pozisyonumuz için başvurular başlamıştır.',
+    summaryEn: 'Applications have started for our senior project manager position.',
+    content: 'Wixtory İnşaat, büyük ölçekli inşaat projelerinde görev alacak kıdemli proje yöneticisi aramaktadır. En az 10 yıl deneyim, PMP sertifikası ve MS Project/Primavera bilgisi gereklidir.\n\nAdaylar kariyer@wixtory.com adresine başvurabilir.',
+    contentEn: 'Wixtory İnşaat is seeking a senior project manager. At least 10 years of experience, PMP certification, and MS Project/Primavera knowledge are required.\n\nCandidates can apply to kariyer@wixtory.com.',
+    date: '2025-02-10',
+    category: 'career',
+    image: IMAGES.aboutTeam,
+    slug: 'kidemli-proje-yoneticisi-araniyor',
+  },
+  {
+    id: 6,
+    title: 'Yeşil Bina Sertifikasyon Süreci Hakkında Bilgilendirme',
+    titleEn: 'Green Building Certification Process Information',
+    summary: 'LEED ve BREEAM sertifikasyon süreçlerimiz hakkında güncel bilgilendirme.',
+    summaryEn: 'Current information about our LEED and BREEAM certification processes.',
+    content: 'Wixtory İnşaat, sürdürülebilirlik hedefleri doğrultusunda tüm yeni projelerinde LEED ve BREEAM sertifikasyon süreçlerini yürütmektedir. 2025 yılı itibarıyla 3 projemiz LEED Gold, 2 projemiz BREEAM Very Good seviyesinde sertifikalandırılmıştır.',
+    contentEn: 'Wixtory İnşaat carries out LEED and BREEAM certification processes in all its new projects. As of 2025, 3 projects have been LEED Gold certified and 2 projects BREEAM Very Good certified.',
+    date: '2025-01-15',
+    category: 'general',
+    image: IMAGES.projectInterior,
+    slug: 'yesil-bina-sertifikasyonu-bilgilendirme',
+  },
+]
+
+export function getAnnouncementsByCategory(category: AnnouncementCategory | 'all'): AnnouncementItem[] {
+  if (category === 'all') return announcementItems
+  return announcementItems.filter(a => a.category === category)
+}
+
+export function getAnnouncementBySlug(slug: string): AnnouncementItem | undefined {
+  return announcementItems.find(a => a.slug === slug)
+}
+
+// ─── Ödüller (Awards) ───────────────────────────────────
+export type AwardCategory = 'innovation' | 'sustainability' | 'quality' | 'safety' | 'corporate' | 'project'
+
+export interface AwardItem {
+  id: number
+  title: string
+  titleEn: string
+  organization: string
+  organizationEn: string
+  year: string
+  category: AwardCategory
+  description: string
+  descriptionEn: string
+  icon: string // lucide icon name
+}
+
+export const awardItems: AwardItem[] = [
+  {
+    id: 1,
+    title: 'Yılın En İyi İnşaat Şirketi',
+    titleEn: 'Construction Company of the Year',
+    organization: 'Türkiye İnşaat Sanayicileri Derneği',
+    organizationEn: 'Turkish Construction Industry Association',
+    year: '2024',
+    category: 'corporate',
+    description: 'Sektördeki üstün başarılarımız, sürdürülebilirlik uygulamalarımız ve mühendislik mükemmelliğimiz ile yılın en iyi inşaat şirketi ödülüne layık görüldük.',
+    descriptionEn: 'We were awarded Construction Company of the Year for our outstanding achievements, sustainability practices, and engineering excellence.',
+    icon: 'Trophy',
+  },
+  {
+    id: 2,
+    title: 'LEED Platinum Sertifikasyonu',
+    titleEn: 'LEED Platinum Certification',
+    organization: 'U.S. Green Building Council',
+    organizationEn: 'U.S. Green Building Council',
+    year: '2024',
+    category: 'sustainability',
+    description: 'Metro Business Hub projemiz, çevre dostu tasarımı ve sürdürülebilir inşaat uygulamaları ile en yüksek LEED sertifikası olan Platinum seviyesinde belgelendirildi.',
+    descriptionEn: 'Our Metro Business Hub project was certified at the Platinum level, the highest LEED certification, for its eco-friendly design and sustainable construction practices.',
+    icon: 'Leaf',
+  },
+  {
+    id: 3,
+    title: 'İnovasyon Ödülü',
+    titleEn: 'Innovation Award',
+    organization: 'Teknoloji Geliştirme Vakfı',
+    organizationEn: 'Technology Development Foundation',
+    year: '2023',
+    category: 'innovation',
+    description: 'BIM (Building Information Modeling) teknolojisini tüm projelerimize entegre etmemiz ve akıllı inşaat uygulamalarımız ile inovasyon ödülünü kazandık.',
+    descriptionEn: 'We won the Innovation Award for integrating BIM (Building Information Modeling) technology into all our projects and our smart construction applications.',
+    icon: 'Lightbulb',
+  },
+  {
+    id: 4,
+    title: 'İş Sağlığı ve Güvenliği Büyük Ödülü',
+    titleEn: 'Occupational Health and Safety Grand Award',
+    organization: 'Çalışma ve Sosyal Güvenlik Bakanlığı',
+    organizationEn: 'Ministry of Labor and Social Security',
+    year: '2023',
+    category: 'safety',
+    description: 'Tüm şantiyelerimizde sıfır iş kazası hedefimize ulaşmamız ve İSG kültürümüz ile büyük ödülün sahibi olduk. ISO 45001 standartlarını aşan uygulamalarımız takdir edilmiştir.',
+    descriptionEn: 'We won the Grand Award for achieving our zero workplace accident target at all our sites and our OHS culture. Our practices exceeding ISO 45001 standards were appreciated.',
+    icon: 'ShieldCheck',
+  },
+  {
+    id: 5,
+    title: 'Yılın Projesi — Marina Tower',
+    titleEn: 'Project of the Year — Marina Tower',
+    organization: 'Mimarlık ve İnşaat Dergisi',
+    organizationEn: 'Architecture and Construction Magazine',
+    year: '2023',
+    category: 'project',
+    description: 'A+ sınıfı ofis kulesi Marina Tower projemiz, akıllı bina teknolojileri ve enerji verimli tasarımı ile yılın projesi seçildi.',
+    descriptionEn: 'Our A+ class office tower Marina Tower project was selected as Project of the Year for its smart building technologies and energy-efficient design.',
+    icon: 'Building2',
+  },
+  {
+    id: 6,
+    title: 'Kalite Yönetiminde Mükemmellik',
+    titleEn: 'Excellence in Quality Management',
+    organization: 'Türk Standartları Enstitüsü',
+    organizationEn: 'Turkish Standards Institution',
+    year: '2022',
+    category: 'quality',
+    description: 'ISO 9001:2015 Kalite Yönetim Sistemi standartlarını tüm süreçlerimizde eksiksiz uygulayarak kalite yönetiminde mükemmellik ödülünü aldık.',
+    descriptionEn: 'We received the Excellence in Quality Management award by fully implementing ISO 9001:2015 Quality Management System standards in all our processes.',
+    icon: 'Award',
+  },
+  {
+    id: 7,
+    title: 'Sürdürülebilir Kentsel Gelişim Ödülü',
+    titleEn: 'Sustainable Urban Development Award',
+    organization: 'Çevre ve Şehircilik Bakanlığı',
+    organizationEn: 'Ministry of Environment and Urbanization',
+    year: '2022',
+    category: 'sustainability',
+    description: 'Green Valley Villas projemiz ile sürdürülebilir malzeme kullanımı, güneş enerjisi sistemleri ve doğayla uyumlu tasarımı ile bu ödüle layık görüldük.',
+    descriptionEn: 'Our Green Valley Villas project was awarded for its sustainable material use, solar energy systems, and nature-friendly design.',
+    icon: 'TreePine',
+  },
+  {
+    id: 8,
+    title: 'En İyi İşveren Ödülü',
+    titleEn: 'Best Employer Award',
+    organization: 'İnsan Kaynakları Derneği',
+    organizationEn: 'Human Resources Association',
+    year: '2024',
+    category: 'corporate',
+    description: 'Çalışan memnuniyeti, kariyer geliştirme programlarımız ve insan odaklı yaklaşımımız ile yılın en iyi işvereni seçildik.',
+    descriptionEn: 'We were selected as the Best Employer of the Year for our employee satisfaction, career development programs, and people-focused approach.',
+    icon: 'Users',
+  },
+  {
+    id: 9,
+    title: 'Yılın Köprü Projesi',
+    titleEn: 'Bridge Project of the Year',
+    organization: 'Türkiye Mühendislik Ödülleri',
+    organizationEn: 'Turkey Engineering Awards',
+    year: '2022',
+    category: 'project',
+    description: 'Northern Highway Bridge projemiz, sismik izolasyon sistemi ve deprem bölgesinde gösterdiği mühendislik mükemmelliği ile yılın köprü projesi ödülünü kazandı.',
+    descriptionEn: 'Our Northern Highway Bridge project won the Bridge Project of the Year award for its seismic isolation system and engineering excellence in an earthquake zone.',
+    icon: 'Landmark',
+  },
+  {
+    id: 10,
+    title: 'Dijital Dönüşüm Ödülü',
+    titleEn: 'Digital Transformation Award',
+    organization: 'Dijital Türkiye Platformu',
+    organizationEn: 'Digital Turkey Platform',
+    year: '2023',
+    category: 'innovation',
+    description: 'İnşaat süreçlerimizde drone teknolojisi, yapay zeka destekli proje yönetimi ve IoT sensörleri kullanarak dijital dönüşüm ödülünü aldık.',
+    descriptionEn: 'We received the Digital Transformation Award by using drone technology, AI-supported project management, and IoT sensors in our construction processes.',
+    icon: 'Cpu',
+  },
+]
+
+export function getAwardsByCategory(category: AwardCategory | 'all'): AwardItem[] {
+  if (category === 'all') return awardItems
+  return awardItems.filter(a => a.category === category)
+}
+
+// ─── Kariyer / İş İlanları (Job Listings) ──────────────
+export type JobDepartment = 'engineering' | 'architecture' | 'management' | 'safety' | 'finance' | 'it'
+export type JobType = 'fulltime' | 'contract'
+
+export interface Job {
+  id: number
+  title: string
+  titleEn: string
+  department: JobDepartment
+  departmentLabel: string
+  departmentLabelEn: string
+  type: JobType
+  typeLabel: string
+  typeLabelEn: string
+  location: string
+  locationEn: string
+  experience: string
+  experienceEn: string
+  salary: string
+  salaryEn: string
+  date: string
+  slug: string
+  description: string
+  descriptionEn: string
+  requirements: string[]
+  requirementsEn: string[]
+  benefits: string[]
+  benefitsEn: string[]
+}
+
+export const jobListings: Job[] = [
+  {
+    id: 1,
+    title: 'Kıdemli Proje Yöneticisi',
+    titleEn: 'Senior Project Manager',
+    department: 'management',
+    departmentLabel: 'Proje Yönetimi',
+    departmentLabelEn: 'Project Management',
+    type: 'fulltime',
+    typeLabel: 'Tam Zamanlı',
+    typeLabelEn: 'Full-time',
+    location: 'Ankara, Çankaya',
+    locationEn: 'Ankara, Cankaya',
+    experience: '10+ yıl',
+    experienceEn: '10+ years',
+    salary: 'Rekabetçi',
+    salaryEn: 'Competitive',
+    date: '2025-02-10',
+    slug: 'kidemli-proje-yoneticisi-araniyor',
+    description: 'Büyük ölçekli inşaat projelerinde görev alacak kıdemli proje yöneticisi aramaktayız. En az 10 yıl deneyim, PMP sertifikası ve MS Project/Primavera bilgisi gereklidir.',
+    descriptionEn: 'We are seeking a senior project manager for large-scale construction projects. At least 10 years of experience, PMP certification, and MS Project/Primavera knowledge are required.',
+    requirements: [
+      'Üniversite mezunu (İnşaat Mühendisliği veya Mimamlık)',
+      'En az 10 yıl proje yönetimi deneyimi',
+      'PMP veya PRINCE2 sertifikası',
+      'MS Project ve Primavera P6 bilgisi',
+      'İleri seviye İngilizce',
+    ],
+    requirementsEn: [
+      'University degree (Civil Engineering or Architecture)',
+      'At least 10 years of project management experience',
+      'PMP or PRINCE2 certification',
+      'MS Project and Primavera P6 knowledge',
+      'Advanced English',
+    ],
+    benefits: [
+      'Rekabetçi maaş ve prim sistemi',
+      'Özel sağlık sigortası',
+      'Yemek ve ulaşım yardımı',
+      'Mesleki gelişim desteği',
+      'Sosyal tesis kullanım hakkı',
+    ],
+    benefitsEn: [
+      'Competitive salary and bonus system',
+      'Private health insurance',
+      'Meal and transportation allowance',
+      'Professional development support',
+      'Social facility access',
+    ],
+  },
+  {
+    id: 2,
+    title: 'İnşaat Mühendisi',
+    titleEn: 'Civil Engineer',
+    department: 'engineering',
+    departmentLabel: 'Mühendislik',
+    departmentLabelEn: 'Engineering',
+    type: 'fulltime',
+    typeLabel: 'Tam Zamanlı',
+    typeLabelEn: 'Full-time',
+    location: 'İstanbul, Ataşehir',
+    locationEn: 'Istanbul, Atasehir',
+    experience: '5+ yıl',
+    experienceEn: '5+ years',
+    salary: 'Rekabetçi',
+    salaryEn: 'Competitive',
+    date: '2025-02-15',
+    slug: 'insaat-muhendisi-araniyor',
+    description: 'Devam eden rezidans ve ticari bina projelerimizde görev alacak inşaat mühendisi arıyoruz. Yapısal hesap, saha kontrol ve şantiye yönetimi deneyimi gereklidir.',
+    descriptionEn: 'We are looking for a civil engineer to work on our ongoing residence and commercial building projects. Structural calculation, site control, and construction management experience required.',
+    requirements: [
+      'İnşaat Mühendisliği lisans derecesi',
+      'En az 5 yıl saha deneyimi',
+      'AutoCAD ve SAP2000 bilgisi',
+      'MS Office programları',
+      'İyi seviyede İngilizce',
+    ],
+    requirementsEn: [
+      'Bachelor degree in Civil Engineering',
+      'At least 5 years of field experience',
+      'AutoCAD and SAP2000 knowledge',
+      'MS Office proficiency',
+      'Good level of English',
+    ],
+    benefits: [
+      'Rekabetçi maaj',
+      'Özel sağlık sigortası',
+      'Yemek ve ulaşım yardımı',
+      'Kariyer gelişim imkanı',
+      'Sosual tesis kullanım hakkı',
+    ],
+    benefitsEn: [
+      'Competitive salary',
+      'Private health insurance',
+      'Meal and transportation allowance',
+      'Career development opportunity',
+      'Social facility access',
+    ],
+  },
+  {
+    id: 3,
+    title: 'Mimar',
+    titleEn: 'Architect',
+    department: 'architecture',
+    departmentLabel: 'Mimarlık',
+    departmentLabelEn: 'Architecture',
+    type: 'fulltime',
+    typeLabel: 'Tam Zamanlı',
+    typeLabelEn: 'Full-time',
+    location: 'İzmir, Bornova',
+    locationEn: 'Izmir, Bornova',
+    experience: '3+ yıl',
+    experienceEn: '3+ years',
+    salary: 'Rekabetçi',
+    salaryEn: 'Competitive',
+    date: '2025-02-20',
+    slug: 'mimar-araniyor',
+    description: 'Tasarım ekibimize katılacak mimar arıyoruz. Konut ve ticari proje tasarımında deneyim, Revit ve 3D modelleme yetkinliği gereklidir.',
+    descriptionEn: 'We are looking for an architect to join our design team. Experience in residential and commercial project design, Revit and 3D modeling proficiency required.',
+    requirements: [
+      'Mimarlık lisans derecesi',
+      'En az 3 yıl tasarım deneyimi',
+      'Revit, AutoCAD, SketchUp bilgisi',
+      '3D modelleme ve görselleştirme',
+      'Orta seviyede İngilizce',
+    ],
+    requirementsEn: [
+      'Bachelor degree in Architecture',
+      'At least 3 years of design experience',
+      'Revit, AutoCAD, SketchUp knowledge',
+      '3D modeling and visualization',
+      'Intermediate English',
+    ],
+    benefits: [
+      'Rekabetçi maaş',
+      'Özel sağlık sigortası',
+      'Yemek yardımı',
+      'Tasarım yazılımları lisansı',
+      'Eğitim ve gelişim desteği',
+    ],
+    benefitsEn: [
+      'Competitive salary',
+      'Private health insurance',
+      'Meal allowance',
+      'Design software licenses',
+      'Training and development support',
+    ],
+  },
+  {
+    id: 4,
+    title: 'İSG Uzmanı',
+    titleEn: 'OHS Specialist',
+    department: 'safety',
+    departmentLabel: 'İSG',
+    departmentLabelEn: 'OHS',
+    type: 'fulltime',
+    typeLabel: 'Tam Zamanlı',
+    typeLabelEn: 'Full-time',
+    location: 'Ankara, Çankaya',
+    locationEn: 'Ankara, Cankaya',
+    experience: '5+ yıl',
+    experienceEn: '5+ years',
+    salary: 'Rekabetçi',
+    salaryEn: 'Competitive',
+    date: '2025-02-25',
+    slug: 'isg-uzmani-araniyor',
+    description: 'Şantiyelerimizde İş Sağlığı ve Güvenliği uzmanı olarak görev alacak adaylar arıyoruz. İSG sertifikası ve saha deneyimi gereklidir.',
+    descriptionEn: 'We are looking for candidates to work as Occupational Health and Safety specialists at our construction sites. OHS certification and field experience required.',
+    requirements: [
+      'İSG sertifikası (C sınıfı veya üzeri)',
+      'En az 5 yıl şantiye deneyimi',
+      'ISO 45001 bilgisi',
+      'Risk değerlendirme yetkinliği',
+      'Acil durum yönetimi eğitimi',
+    ],
+    requirementsEn: [
+      'OHS certificate (Class C or higher)',
+      'At least 5 years of site experience',
+      'ISO 45001 knowledge',
+      'Risk assessment competency',
+      'Emergency management training',
+    ],
+    benefits: [
+      'Rekabetçi maaş',
+      'Özel sağlık sigortası',
+      'Yemek ve ulaşım yardımı',
+      'İSG eğitimleri desteği',
+      'Saha primi',
+    ],
+    benefitsEn: [
+      'Competitive salary',
+      'Private health insurance',
+      'Meal and transportation allowance',
+      'OHS training support',
+      'Site bonus',
+    ],
+  },
+  {
+    id: 5,
+    title: 'Finans Uzmanı',
+    titleEn: 'Finance Specialist',
+    department: 'finance',
+    departmentLabel: 'Finans',
+    departmentLabelEn: 'Finance',
+    type: 'fulltime',
+    typeLabel: 'Tam Zamanlı',
+    typeLabelEn: 'Full-time',
+    location: 'Ankara, Çankaya',
+    locationEn: 'Ankara, Cankaya',
+    experience: '4+ yıl',
+    experienceEn: '4+ years',
+    salary: 'Rekabetçi',
+    salaryEn: 'Competitive',
+    date: '2025-03-01',
+    slug: 'finans-uzmani-araniyor',
+    description: 'Merkez ofisimizde görev alacak finans uzmanı arıyoruz. İnşaat sektörü deneyimi, bütçe ve raporlama yetkinliği gereklidir.',
+    descriptionEn: 'We are looking for a finance specialist to work at our head office. Construction sector experience, budget and reporting competency required.',
+    requirements: [
+      'İşletme veya Ekonomi lisans derecesi',
+      'En az 4 yıl finans deneyimi',
+      'MS Excel ve SAP bilgisi',
+      'İnşaat sektörü deneyimi tercih sebebi',
+      'İleri seviyede İngilizce',
+    ],
+    requirementsEn: [
+      'Bachelor degree in Business or Economics',
+      'At least 4 years of finance experience',
+      'MS Excel and SAP knowledge',
+      'Construction sector experience preferred',
+      'Advanced English',
+    ],
+    benefits: [
+      'Rekabetçi maaş',
+      'Özel sağlık sigortası',
+      'Yemek yardımı',
+      'Performans primi',
+      'Kariyer gelişim imkanı',
+    ],
+    benefitsEn: [
+      'Competitive salary',
+      'Private health insurance',
+      'Meal allowance',
+      'Performance bonus',
+      'Career development opportunity',
+    ],
+  },
+  {
+    id: 6,
+    title: 'Yazılım Geliştirici',
+    titleEn: 'Software Developer',
+    department: 'it',
+    departmentLabel: 'Bilişim',
+    departmentLabelEn: 'IT',
+    type: 'contract',
+    typeLabel: 'Sözleşmeli',
+    typeLabelEn: 'Contract',
+    location: 'Ankara, Çankaya',
+    locationEn: 'Ankara, Cankaya',
+    experience: '3+ yıl',
+    experienceEn: '3+ years',
+    salary: 'Rekabetçi',
+    salaryEn: 'Competitive',
+    date: '2025-03-05',
+    slug: 'yazilim-gelistirici-araniyor',
+    description: 'Dijital dönüşüm projelerimizde görev alacak yazılım geliştirici arıyoruz. Web ve mobil uygulama geliştirme deneyimi gereklidir.',
+    descriptionEn: 'We are looking for a software developer to work on our digital transformation projects. Web and mobile application development experience required.',
+    requirements: [
+      'Bilgisayar Mühendisliği veya ilgili bölüm',
+      'En az 3 yıl geliştirme deneyimi',
+      'React, Node.js, TypeScript bilgisi',
+      'Mobil uygulama geliştirme (React Native)',
+      'SQL ve NoSQL veritabanı bilgisi',
+    ],
+    requirementsEn: [
+      'Computer Engineering or related field',
+      'At least 3 years of development experience',
+      'React, Node.js, TypeScript knowledge',
+      'Mobile app development (React Native)',
+      'SQL and NoSQL database knowledge',
+    ],
+    benefits: [
+      'Rekabetçi maaş',
+      'Uzaktan çalışma esnekliği',
+      'Özel sağlık sigortası',
+      'Teknoloji ekipman desteği',
+      'Eğitim ve sertifika desteği',
+    ],
+    benefitsEn: [
+      'Competitive salary',
+      'Remote work flexibility',
+      'Private health insurance',
+      'Technology equipment support',
+      'Training and certification support',
+    ],
+  },
+]
+
+export function getActiveJobs(): Job[] {
+  return jobListings
+}
+
+export function getJobBySlug(slug: string): Job | undefined {
+  return jobListings.find(j => j.slug === slug)
+}
+

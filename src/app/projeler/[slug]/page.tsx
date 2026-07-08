@@ -231,6 +231,14 @@ export default function ProjectDetailPage() {
                         {locale === 'en' ? project.locationEn : project.location}
                       </span>
                     </div>
+                    {project.address && (
+                      <div className="flex items-start justify-between py-2 border-b border-border/50 gap-3">
+                        <span className="text-sm text-muted-foreground flex-shrink-0">{t.projects.addressLabel}</span>
+                        <span className="text-sm font-medium text-foreground text-right">
+                          {locale === 'en' ? project.addressEn : project.address}
+                        </span>
+                      </div>
+                    )}
                     <div className="flex items-center justify-between py-2 border-b border-border/50">
                       <span className="text-sm text-muted-foreground">{t.projects.areaLabel}</span>
                       <span className="text-sm font-medium text-foreground">{project.area}</span>

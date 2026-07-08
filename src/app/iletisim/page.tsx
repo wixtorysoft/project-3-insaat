@@ -10,6 +10,10 @@ import { useToast } from '@/hooks/use-toast'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import dynamic from 'next/dynamic'
+
+// Leaflet'i ssr:false ile dinamik yükle
+const MapView = dynamic(() => import('@/components/MapView'), { ssr: false })
 
 export default function ContactPage() {
   const { t } = useI18n()
@@ -83,13 +87,13 @@ export default function ContactPage() {
       {/* Contact Form & Info */}
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
-            {/* Contact Info */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+            {/* Left: Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-2 space-y-6"
+              className="space-y-6"
             >
               {contactInfo.map((info) => (
                 <a key={info.label} href={info.href} className="flex items-start gap-4 group p-3 -m-3 rounded-xl hover:bg-primary/5 transition-all duration-300">
@@ -102,22 +106,14 @@ export default function ContactPage() {
                   </div>
                 </a>
               ))}
-              <div className="glass rounded-2xl overflow-hidden mt-6">
-                <div className="h-56 bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-8 h-8 text-primary/50 mx-auto mb-2" />
-                    <p className="text-sm text-muted-foreground">Levent, İstanbul</p>
-                  </div>
-                </div>
-              </div>
             </motion.div>
 
-            {/* Form */}
+            {/* Right: Form */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-3"
+              className="lg:sticky lg:top-24 lg:self-start"
             >
               <div className="glass rounded-2xl p-6 sm:p-8">
                 {submitSuccess ? (
@@ -170,6 +166,24 @@ export default function ContactPage() {
               </div>
             </motion.div>
           </div>
+
+          {/* Map - tam genişlik, iki kolonun altında */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-8 lg:mt-12"
+          >
+            <div className="glass rounded-2xl overflow-hidden relative h-96 sm:h-[28rem] lg:h-[32rem]">
+              <MapView
+                lat={companyInfo.lat}
+                lng={companyInfo.lng}
+                zoom={15}
+                title={companyInfo.name}
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

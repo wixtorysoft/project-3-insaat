@@ -143,7 +143,7 @@ export default function Contact() {
               <div className="h-48 sm:h-56 bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="w-8 h-8 text-primary/50 mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">Levent, İstanbul</p>
+                  <p className="text-sm text-muted-foreground">Çankaya, Ankara</p>
                 </div>
               </div>
             </div>

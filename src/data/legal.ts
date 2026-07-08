@@ -59,7 +59,7 @@ Gizlilik sözleşmemizle ilgili sorularınız için bizimle iletişime geçebili
 
 - **E-posta:** wixtorysoft@gmail.com
 - **Telefon:** +90 544 835 84 01
-- **Adres:** Levent Mah. Büyükdere Cad. No:123 Beşiktaş/İstanbul
+- **Adres:** Podium AVM, Mustafa Kemal Mah. Dumlupınar Bulvarı No:268 Çankaya/Ankara
 
 ## 8. Değişiklikler
 
@@ -125,7 +125,7 @@ For questions about our privacy policy, you can contact us:
 
 - **Email:** wixtorysoft@gmail.com
 - **Phone:** +90 544 835 84 01
-- **Address:** Levent Mah. Büyükdere Cad. No:123 Beşiktaş/Istanbul
+- **Address:** Podium Mall, Mustafa Kemal Neighborhood, Dumlupinar Blvd No:268, Cankaya/Ankara
 
 ## 8. Changes
 
@@ -138,7 +138,7 @@ export const kvkkTextTR = `
 İşbu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, kişisel verilerinizin işlenmesine ilişkin olarak sizleri bilgilendirmek amacıyla hazırlanmıştır.
 
 **Veri Sorumlusu:** Wixtory İnşaat  
-**Adres:** Levent Mah. Büyükdere Cad. No:123 Beşiktaş/İstanbul  
+**Adres:** Podium AVM, Mustafa Kemal Mah. Dumlupınar Bulvarı No:268 Çankaya/Ankara  
 **E-posta:** wixtorysoft@gmail.com  
 **Telefon:** +90 544 835 84 01  
 
@@ -220,7 +220,7 @@ export const kvkkTextEN = `
 This disclosure text has been prepared in accordance with Law No. 6698 on the Protection of Personal Data ("KVKK") to inform you about the processing of your personal data.
 
 **Data Controller:** Wixtory İnşaat  
-**Address:** Levent Mah. Büyükdere Cad. No:123 Beşiktaş/Istanbul  
+**Address:** Podium Mall, Mustafa Kemal Neighborhood, Dumlupinar Blvd No:268, Cankaya/Ankara  
 **Email:** wixtorysoft@gmail.com  
 **Phone:** +90 544 835 84 01  
 

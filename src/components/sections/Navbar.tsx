@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Menu, X, HardHat, Phone, ChevronDown, Building2, Clock,
-  Users, Eye, Target, History, ShieldCheck, Newspaper,
+  Users, Eye, Target, History, ShieldCheck, Newspaper, Megaphone, Trophy,
 } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -54,7 +54,9 @@ export default function Navbar() {
     { href: '/vizyon-misyon', label: t.nav.visionMission, icon: Target, desc: locale === 'en' ? 'Our goals & principles' : 'Hedeflerimiz & ilkelerimiz', color: 'primary' },
     { href: '/tarihce', label: t.nav.history, icon: History, desc: locale === 'en' ? 'Our journey since 1999' : '1999\'dan bugüne yolculuğumuz', color: 'primary' },
     { href: '/kalite-politikasi', label: t.nav.qualityPolicy, icon: ShieldCheck, desc: locale === 'en' ? 'Standards & certifications' : 'Standartlar & sertifikalar', color: 'primary' },
-    { href: '/haberler', label: t.nav.news, icon: Newspaper, desc: locale === 'en' ? 'Latest updates' : 'Son güncellemeler', color: 'amber' },
+    { href: '/haberler', label: t.nav.news, icon: Newspaper, desc: locale === 'en' ? 'Latest updates' : 'Son güncellemeler', color: 'primary' },
+    { href: '/duyurular', label: t.nav.announcements, icon: Megaphone, desc: locale === 'en' ? 'Tenders & events' : 'İhaleler & etkinlikler', color: 'amber' },
+    { href: '/oduller', label: t.nav.awards, icon: Trophy, desc: locale === 'en' ? 'Awards & achievements' : 'Ödüller & başarılar', color: 'amber' },
   ]
 
   // Projects dropdown items

@@ -3,9 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
-import Navbar from "@/components/sections/Navbar";
+import DynamicNavbar from "@/components/DynamicNavbar";
 import Footer from "@/components/sections/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import DynamicPreloader from "@/components/DynamicPreloader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" suppressHydrationWarning className="dark">
+    <html lang="tr" suppressHydrationWarning className="dark" style={{ colorScheme: 'dark' }}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
@@ -60,8 +61,9 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <DynamicPreloader />
           <div className="min-h-screen flex flex-col">
-            <Navbar />
+            <DynamicNavbar />
             <main className="flex-1">{children}</main>
             <Footer />
           </div>

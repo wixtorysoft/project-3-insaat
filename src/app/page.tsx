@@ -5,6 +5,7 @@ import Stats from '@/components/sections/Stats'
 import About from '@/components/sections/About'
 import Services from '@/components/sections/Services'
 import Projects from '@/components/sections/Projects'
+import NewsAnnouncements from '@/components/sections/NewsAnnouncements'
 import Testimonials from '@/components/sections/Testimonials'
 import Contact from '@/components/sections/Contact'
 
@@ -13,9 +14,10 @@ export default function Home() {
     <>
       <Hero />
       <Stats />
+      <Projects />
+      <NewsAnnouncements />
       <About />
       <Services />
-      <Projects />
       <Testimonials />
       <Contact />
     </>
